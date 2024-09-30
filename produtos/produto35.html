@@ -31,7 +31,7 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        .container img {
+        .container video {
             width: 100%;
             height: auto;
             max-height: 400px;
@@ -92,12 +92,15 @@
 <body>
 
     <div class="container">
-        <img src="https://i.imgur.com/lfS8ogu.png" alt="Operação Policial">
+        <video loop muted autoplay>
+            <source src="../video/ATM.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
         <h2>ATM Quais artigos devo colocar?</h2>
         <p>Furto - Artigo 8 (ao que estiver com o dinheiro sujo) e Cumplicidade - Artigo 29 (ao cúmplice do furto).
             Caso o preso cometa algum outro crime, outros artigos também podem ser adicionados menos Lavagem de dinheiro</p>
         <div class="btn-container">
-            <a href="./../index.html">Voltar para a página inicial</a>
+            <a href="../index.html">Voltar para a página inicial</a>
         </div>
     </div>
 
