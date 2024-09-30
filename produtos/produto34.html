@@ -4,61 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto 1</title>
+    <title>Operação Policial</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            background-color: #f4f4f4;
+            height: 100vh;
+            background-color: #1a1a2e;
+            color: #fff;
         }
 
-        .produto {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            width: 80%;
-            max-width: 800px;
-            margin: 20px 0;
+        .container {
+            background-color: #16213e;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            max-width: 900px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        img {
-            width: 200px;
-            height: 200px;
+        .container img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
         }
 
         h2 {
-            margin-top: 10px;
+            background-color: #0f3460;
+            padding: 15px 0;
+            margin: 0;
+            color: #e94560;
+            text-transform: uppercase;
+            font-size: 24px;
         }
 
         p {
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 18px;
+            background-color: #1a1a2e;
+            margin: 0;
             text-align: justify;
-            text-indent: 30px;
+            color: #f5f5f5;
+        }
+
+        .btn-container {
+            padding: 20px;
+            background-color: #16213e;
         }
 
         a {
             text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
+            color: #fff;
+            background-color: #e94560;
+            padding: 12px 30px;
+            border-radius: 30px;
             font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0f3460;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="produto">
-        <img src="https://i.imgur.com/QgIclE2.png" alt="Produto 34">
-        <h2>Lojinha</h2>
+    <div class="container">
+        <img src="https://i.imgur.com/lfS8ogu.png" alt="Operação Policial">
+        <h2>Lojinha Quais artigos devo colocar?</h2>
         <p>Apenas o artigo Roubo - Artigo 9. Caso o preso cometa algum outro crime, outros artigos também podem ser adicionados menos Lavagem de dinheiro, Porte ilegal de arma de fogo e Importar ou exportar mercadoria proibida</p>
-        <a href="../index.html">Voltar para a página inicial</a>
+        <div class="btn-container">
+            <a href="./../index.html">Voltar para a página inicial</a>
+        </div>
     </div>
 
 </body>
