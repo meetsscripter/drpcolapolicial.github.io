@@ -18,7 +18,7 @@
             background-color: #1e1e1e;
             position: relative;
             overflow: hidden;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         video {
@@ -40,45 +40,47 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 40px;
+            padding: 20px;
+            flex-wrap: wrap;
         }
 
         .logo-container {
-            flex: 2;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .logo-container img {
-            width: 300px;
+            width: 200px;
             height: auto;
             margin-bottom: 20px;
         }
 
         .logo-container h1 {
             margin: 0;
-            font-size: 48px;
-            letter-spacing: 3px;
+            font-size: 32px;
+            letter-spacing: 2px;
             color: #f4f4f4;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
         }
 
         .description {
             margin-top: 10px;
-            font-size: 20px;
-            max-width: 400px;
+            font-size: 16px;
+            max-width: 300px;
             color: #f4f4f4;
         }
 
         .search-container {
             flex: 1;
-            margin: 20px;
+            margin: 10px;
             max-width: 400px;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
         }
@@ -90,13 +92,13 @@
         }
 
         .menu-categories button {
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
             border-radius: 10px;
             background-color: #333;
             color: #fff;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: background-color 0.3s ease;
         }
 
@@ -105,11 +107,11 @@
         }
 
         #inputBusca {
-            padding: 15px;
-            width: 95%;
+            padding: 12px;
+            width: 92%;
             border-radius: 10px;
             border: none;
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 10px;
             background-color: #333;
             color: #fff;
@@ -117,25 +119,24 @@
         }
 
         #listaProdutos {
-        list-style-type: none;
-        padding: 0;
-        display: none;
-        max-height: 250px; /* Altura máxima do menu */
-        overflow-y: auto; /* Rolagem vertical */
-        width: 100%;
-        scrollbar-width: thin; /* Para navegadores como Firefox */
-        scrollbar-color: #555 #1e1e1e;
-    }
+            list-style-type: none;
+            padding: 0;
+            display: none;
+            max-height: 250px;
+            overflow-y: auto;
+            width: 100%;
+            scrollbar-width: thin;
+            scrollbar-color: #555 #1e1e1e;
+        }
 
-    /* Estilo para Webkit (Chrome, Edge, Safari) */
-    #listaProdutos::-webkit-scrollbar {
-        width: 12px;
-    }
+        #listaProdutos::-webkit-scrollbar {
+            width: 12px;
+        }
 
-    #listaProdutos::-webkit-scrollbar-track {
-        background: #1e1e1e; /* Fundo do track do scroll */
-        border-radius: 10px;
-    }
+        #listaProdutos::-webkit-scrollbar-track {
+            background: #1e1e1e;
+            border-radius: 10px;
+        }
 
         #listaProdutos li {
             margin: 10px 0;
@@ -160,7 +161,6 @@
             width: 50px;
             height: 50px;
             margin-right: 10px;
-            
         }
 
         #listaProdutos .item-name {
@@ -168,7 +168,61 @@
             font-size: 18px;
         }
 
-        
+        @media (max-width: 768px) {
+            .logo-container img {
+                width: 150px;
+            }
+
+            .logo-container h1 {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .menu-categories button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .search-container {
+                padding: 15px;
+            }
+
+            #inputBusca {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container img {
+                width: 120px;
+            }
+
+            .logo-container h1 {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 12px;
+            }
+
+            .menu-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-categories button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .search-container {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 
@@ -424,6 +478,12 @@
                     <a href="produtos/produto39.html">
                         <img src="https://i.imgur.com/QgIclE2.png" alt="Taser ou arma? o que usar durante uma abordagem?">
                         <span class="item-name">Banco o que fazer?</span>
+                    </a>
+                </li>
+                <li class="dúvidas">
+                    <a href="produtos/produto40.html">
+                        <img src="https://i.imgur.com/QgIclE2.png" alt="Limites de viaturas e código 5">
+                        <span class="item-name">Limites de viaturas e código 5</span>
                     </a>
                 </li>
             </ul>
