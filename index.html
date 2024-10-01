@@ -83,6 +83,27 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
         }
 
+        .menu-categories {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .menu-categories button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-categories button:hover {
+            background-color: #555;
+        }
+
         #inputBusca {
             padding: 15px;
             width: 95%;
@@ -96,11 +117,25 @@
         }
 
         #listaProdutos {
-            list-style-type: none;
-            padding: 0;
-            display: none;
-            width: 100%;
-        }
+        list-style-type: none;
+        padding: 0;
+        display: none;
+        max-height: 250px; /* Altura máxima do menu */
+        overflow-y: auto; /* Rolagem vertical */
+        width: 100%;
+        scrollbar-width: thin; /* Para navegadores como Firefox */
+        scrollbar-color: #555 #1e1e1e;
+    }
+
+    /* Estilo para Webkit (Chrome, Edge, Safari) */
+    #listaProdutos::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    #listaProdutos::-webkit-scrollbar-track {
+        background: #1e1e1e; /* Fundo do track do scroll */
+        border-radius: 10px;
+    }
 
         #listaProdutos li {
             margin: 10px 0;
@@ -125,12 +160,15 @@
             width: 50px;
             height: 50px;
             margin-right: 10px;
+            
         }
 
         #listaProdutos .item-name {
             font-weight: bold;
             font-size: 18px;
         }
+
+        
     </style>
 </head>
 
@@ -150,252 +188,265 @@
         </div>
 
         <div class="search-container">
+            <div class="menu-categories">
+                <button onclick="mostrarIlícitos()">Área de Ilícitos</button>
+                <button onclick="mostrarDúvidas()">Área de Dúvidas</button>
+            </div>
+
             <input id="inputBusca" onkeyup="filtrar()" type="text" placeholder="O que você procura?">
+            
             <ul id="listaProdutos">
-            <li>
-                <a href="produtos/produto1.html">
-                    <img src="https://i.imgur.com/gsQklxV.png" alt="Produto Químico">
-                    <span class="item-name">Produto Químico</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto2.html">
-                    <img src="https://i.imgur.com/GCaBx1a.png" alt="Adubo">
-                    <span class="item-name">Adubo</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto3.html">
-                    <img src="https://i.imgur.com/EhsF0YF.png" alt="Cannabis">
-                    <span class="item-name">Cannabis</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto4.html">
-                    <img src="https://i.imgur.com/JC1UiIn.png" alt="Folha de coca">
-                    <span class="item-name">Folha de coca</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto5.html">
-                    <img src="https://i.imgur.com/dBzMBAU.png" alt="5.56">
-                    <span class="item-name">5.56</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto6.html">
-                    <img src="https://i.imgur.com/OtJcgHH.png" alt="7.62">
-                    <span class="item-name">7.62</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto7.html">
-                    <img src="https://i.imgur.com/49lOjRJ.png" alt="9mm">
-                    <span class="item-name">9mm</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto8.html">
-                    <img src="https://i.imgur.com/t8nsEe5.png" alt="12">
-                    <span class="item-name">12</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto9.html">
-                    <img src="https://i.imgur.com/MsfxNDv.png" alt=".45">
-                    <span class="item-name">.45</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto10.html">
-                    <img src="https://i.imgur.com/IcaDKWz.png" alt="Algemas">
-                    <span class="item-name">Algemas</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto11.html">
-                    <img src="https://i.imgur.com/KafLa8s.png" alt="Lixadeira">
-                    <span class="item-name">Lixadeira</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto12.html">
-                    <img src="https://i.imgur.com/NBSlZbV.png" alt="Dinheiro sujo">
-                    <span class="item-name">Dinheiro sujo</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto13.html">
-                    <img src="https://i.imgur.com/4tXUDFy.png" alt="Rádio">
-                    <span class="item-name">Rádio</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto14.html">
-                    <img src="https://i.imgur.com/S9MEeZq.png" alt="Colete">
-                    <span class="item-name">Colete</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto15.html">
-                    <img src="https://i.imgur.com/qJrV4cP.png" alt="Bilhete de corrida">
-                    <span class="item-name">Bilhete de corrida</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto16.html">
-                    <img src="https://i.imgur.com/La47kgr.png" alt="Pendrive com informações sigilosas">
-                    <span class="item-name">Pendrive com informações sigilosas</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto17.html">
-                    <img src="https://i.imgur.com/FWENHA9.png" alt="Token de Joalheria">
-                    <span class="item-name">Token de Joalheria</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto18.html">
-                    <img src="https://i.imgur.com/GY3HyAo.png" alt="Token de lojinha">
-                    <span class="item-name">Token de lojinha</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto19.html">
-                    <img src="https://i.imgur.com/wfWcveO.png" alt="Placa clonada">
-                    <span class="item-name">Placa clonada</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto20.html">
-                    <img src="https://i.imgur.com/TWt09zH.png" alt="Supressor">
-                    <span class="item-name">Supressor</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto21.html">
-                    <img src="https://i.imgur.com/x3CqA0C.png" alt="Lockpick">
-                    <span class="item-name">Lockpick</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto22.html">
-                    <img src="https://i.imgur.com/kp1zKfO.png" alt="Cocaína">
-                    <span class="item-name">Cocaína</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto23.html">
-                    <img src="https://i.imgur.com/HIwJOSE.png" alt="Peça de arma">
-                    <span class="item-name">Peça de arma</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto24.html">
-                    <img src="https://i.imgur.com/rR1YdoB.png" alt="Maconha">
-                    <span class="item-name">Maconha</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto25.html">
-                    <img src="https://i.imgur.com/AJyc7a3.png" alt="Laser">
-                    <span class="item-name">Laser</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto26.html">
-                    <img src="https://i.imgur.com/jGQ9UaH.png" alt="C4">
-                    <span class="item-name">C4</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto27.html">
-                    <img src="https://i.imgur.com/j62iqp1.png" alt="Dinamite">
-                    <span class="item-name">Dinamite</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto28.html">
-                    <img src="https://i.imgur.com/YFzP9pR.png" alt="Pré-pago">
-                    <span class="item-name">Pré-pago</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto29.html">
-                    <img src="https://i.imgur.com/H9PMnNE.png" alt="Faca">
-                    <span class="item-name">Faca</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto30.html">
-                    <img src="https://i.imgur.com/Akl6ULT.png" alt="Peças de carro">
-                    <span class="item-name">Peças de carro</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto31.html">
-                    <img src="https://i.imgur.com/xlrfaab.png" alt="357 Magnum">
-                    <span class="item-name">357 Magnum</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto32.html">
-                    <img src="https://i.imgur.com/NwwIz2R.png" alt="Pneu blindado">
-                    <span class="item-name">Pneu blindado</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto33.html">
-                    <img src="https://i.imgur.com/fVDbZaa.png" alt="Kevlar">
-                    <span class="item-name">Kevlar</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto34.html">
-                    <img src="https://i.imgur.com/QgIclE2.png" alt="Lojinha">
-                    <span class="item-name">Lojinha Quais artigos devo colocar?</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto35.html">
-                    <img src="https://i.imgur.com/QgIclE2.png" alt="ATM">
-                    <span class="item-name">ATM Quais artigos devo colocar?</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://heyzine.com/flip-book/1f8a76ac0c.html">
-                    <img src="https://i.imgur.com/QgIclE2.png" alt="Regulamento Interno">
-                    <span class="item-name">Regulamento Interno</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto36.html">
-                    <img src="https://i.imgur.com/QgIclE2.png" alt="Taser ou arma? o que usar durante uma abordagem?">
-                    <span class="item-name">Taser ou arma? o que usar durante uma abordagem?</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto37.html">
-                    <img src="https://i.imgur.com/fPE00aT.png" alt="GAM">
-                    <span class="item-name">GAM</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto38.html">
-                    <img src="https://i.imgur.com/QgIclE2.png" alt="Joalheria">
-                    <span class="item-name">Joalheria</span>
-                </a>
-            </li>
-            <li>
-                <a href="produtos/produto39.html">
-                    <img src="https://i.imgur.com/QgIclE2.png" alt="Banco">
-                    <span class="item-name">Banco</span>
-                </a>
-            </li>
-        </ul>
+                <!-- Ilícitos -->
+                <li class="ilícitos">
+                    <a href="produtos/produto1.html">
+                        <img src="https://i.imgur.com/gsQklxV.png" alt="Produto Químico">
+                        <span class="item-name">Produto Químico</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto2.html">
+                        <img src="https://i.imgur.com/GCaBx1a.png" alt="Adubo">
+                        <span class="item-name">Adubo</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto3.html">
+                        <img src="https://i.imgur.com/EhsF0YF.png" alt="Cannabis">
+                        <span class="item-name">Cannabis</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto4.html">
+                        <img src="https://i.imgur.com/JC1UiIn.png" alt="Folha de coca">
+                        <span class="item-name">Folha de coca</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto5.html">
+                        <img src="https://i.imgur.com/dBzMBAU.png" alt="5.56">
+                        <span class="item-name">5.56</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto6.html">
+                        <img src="https://i.imgur.com/OtJcgHH.png" alt="7.62">
+                        <span class="item-name">7.62</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto7.html">
+                        <img src="https://i.imgur.com/49lOjRJ.png" alt="9mm">
+                        <span class="item-name">9mm</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto8.html">
+                        <img src="https://i.imgur.com/t8nsEe5.png" alt="12">
+                        <span class="item-name">12</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto9.html">
+                        <img src="https://i.imgur.com/MsfxNDv.png" alt=".45">
+                        <span class="item-name">.45</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto10.html">
+                        <img src="https://i.imgur.com/IcaDKWz.png" alt="Algemas">
+                        <span class="item-name">Algemas</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto11.html">
+                        <img src="https://i.imgur.com/KafLa8s.png" alt="Lixadeira">
+                        <span class="item-name">Lixadeira</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto12.html">
+                        <img src="https://i.imgur.com/NBSlZbV.png" alt="Dinheiro sujo">
+                        <span class="item-name">Dinheiro sujo</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto13.html">
+                        <img src="https://i.imgur.com/4tXUDFy.png" alt="Rádio">
+                        <span class="item-name">Rádio</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto14.html">
+                        <img src="https://i.imgur.com/S9MEeZq.png" alt="Colete">
+                        <span class="item-name">Colete</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto15.html">
+                        <img src="https://i.imgur.com/qJrV4cP.png" alt="Bilhete de corrida">
+                        <span class="item-name">Bilhete de corrida</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto16.html">
+                        <img src="https://i.imgur.com/La47kgr.png" alt="Pendrive com informações sigilosas">
+                        <span class="item-name">Pendrive com informações sigilosas</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto17.html">
+                        <img src="https://i.imgur.com/FWENHA9.png" alt="Token de Joalheria">
+                        <span class="item-name">Token de Joalheria</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto18.html">
+                        <img src="https://i.imgur.com/GY3HyAo.png" alt="Token de lojinha">
+                        <span class="item-name">Token de lojinha</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto19.html">
+                        <img src="https://i.imgur.com/wfWcveO.png" alt="Placa clonada">
+                        <span class="item-name">Placa clonada</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto20.html">
+                        <img src="https://i.imgur.com/TWt09zH.png" alt="Supressor">
+                        <span class="item-name">Supressor</span>
+                    </a>
+                </li>
+                <li li class="ilícitos">
+                    <a href="produtos/produto21.html">
+                        <img src="https://i.imgur.com/x3CqA0C.png" alt="Lockpick">
+                        <span class="item-name">Lockpick</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto22.html">
+                        <img src="https://i.imgur.com/kp1zKfO.png" alt="Cocaína">
+                        <span class="item-name">Cocaína</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto23.html">
+                        <img src="https://i.imgur.com/HIwJOSE.png" alt="Peça de arma">
+                        <span class="item-name">Peça de arma</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto24.html">
+                        <img src="https://i.imgur.com/rR1YdoB.png" alt="Maconha">
+                        <span class="item-name">Maconha</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto25.html">
+                        <img src="https://i.imgur.com/AJyc7a3.png" alt="Laser">
+                        <span class="item-name">Laser</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto26.html">
+                        <img src="https://i.imgur.com/jGQ9UaH.png" alt="C4">
+                        <span class="item-name">C4</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto27.html">
+                        <img src="https://i.imgur.com/j62iqp1.png" alt="Dinamite">
+                        <span class="item-name">Dinamite</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto28.html">
+                        <img src="https://i.imgur.com/YFzP9pR.png" alt="Pré-pago">
+                        <span class="item-name">Pré-pago</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto29.html">
+                        <img src="https://i.imgur.com/H9PMnNE.png" alt="Faca">
+                        <span class="item-name">Faca</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto30.html">
+                        <img src="https://i.imgur.com/Akl6ULT.png" alt="Peças de carro">
+                        <span class="item-name">Peças de carro</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto31.html">
+                        <img src="https://i.imgur.com/xlrfaab.png" alt="357 Magnum">
+                        <span class="item-name">357 Magnum</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto32.html">
+                        <img src="https://i.imgur.com/NwwIz2R.png" alt="Pneu blindado">
+                        <span class="item-name">Pneu blindado</span>
+                    </a>
+                </li>
+                <li class="ilícitos">
+                    <a href="produtos/produto33.html">
+                        <img src="https://i.imgur.com/fVDbZaa.png" alt="Kevlar">
+                        <span class="item-name">Kevlar</span>
+                    </a>
+                </li>
+                <!-- Dúvidas -->
+                <li class="dúvidas">
+                    <a href="https://heyzine.com/flip-book/1f8a76ac0c.html">
+                        <img src="https://i.imgur.com/QgIclE2.png" alt="Regulamento Interno">
+                        <span class="item-name">Regulamento Interno</span>
+                    </a>
+                </li>
+                <li class="dúvidas">
+                    <a href="produtos/produto36.html">
+                        <img src="https://i.imgur.com/QgIclE2.png" alt="Taser ou arma? o que usar durante uma abordagem?">
+                        <span class="item-name">Taser ou arma? o que usar durante uma abordagem?</span>
+                    </a>
+                </li>
+                <li class="dúvidas">
+                    <a href="produtos/produto37.html">
+                        <img src="https://i.imgur.com/fPE00aT.png" alt="Taser ou arma? o que usar durante uma abordagem?">
+                        <span class="item-name">GAM o que faz?</span>
+                    </a>
+                </li>
+                <li class="dúvidas">
+                    <a href="produtos/produto38.html">
+                        <img src="https://i.imgur.com/QgIclE2.png" alt="Taser ou arma? o que usar durante uma abordagem?">
+                        <span class="item-name">Joalheria o que fazer?</span>
+                    </a>
+                </li>
+                <li class="dúvidas">
+                    <a href="produtos/produto39.html">
+                        <img src="https://i.imgur.com/QgIclE2.png" alt="Taser ou arma? o que usar durante uma abordagem?">
+                        <span class="item-name">Banco o que fazer?</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <script>
+        function mostrarIlícitos() {
+            const ilícitos = document.querySelectorAll('.ilícitos');
+            const dúvidas = document.querySelectorAll('.dúvidas');
+            ilícitos.forEach(item => item.style.display = 'block');
+            dúvidas.forEach(item => item.style.display = 'none');
+            document.getElementById('listaProdutos').style.display = 'block';
+        }
+
+        function mostrarDúvidas() {
+            const ilícitos = document.querySelectorAll('.ilícitos');
+            const dúvidas = document.querySelectorAll('.dúvidas');
+            ilícitos.forEach(item => item.style.display = 'none');
+            dúvidas.forEach(item => item.style.display = 'block');
+            document.getElementById('listaProdutos').style.display = 'block';
+        }
+
         function filtrar() {
             const input = document.getElementById('inputBusca');
             const filter = input.value.toLowerCase();
