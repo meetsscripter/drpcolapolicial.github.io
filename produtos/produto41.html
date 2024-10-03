@@ -16,6 +16,21 @@
             height: 100vh;
         }
 
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
         .container {
             background-color: #fff;
             padding: 20px;
@@ -25,6 +40,7 @@
             max-width: 600px;
             overflow-y: auto; /* Permite rolagem se o conteúdo for muito grande */
             max-height: 80vh; /* Limita a altura do formulário */
+            position: right; /* Para posicionar o botão "Voltar" */
         }
 
         h2 {
@@ -78,11 +94,20 @@
         .material-quantity {
             display: none; /* Ocultar inicialmente */
         }
+
+        .back-button {
+            position: absolute; /* Posiciona o botão de forma absoluta */
+            top: 10px; /* Distância do topo */
+            right: 10px; /* Distância da direita */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Formulário de Relatório</h2>
+        
+        <!-- Botão Voltar -->
+        <a href="../index.html" class="back-button">Voltar para a página inicial</a>
         
         <!-- Formulário de Login -->
         <div id="loginForm">
@@ -93,7 +118,6 @@
             <button id="loginButton">Entrar</button>
             <p class="error-message" id="loginErrorMessage" style="display:none;">Login ou senha inválidos.</p>
         </div>
-
         <!-- Formulário de Relatório -->
         <form id="reportForm" style="display:none;">
             <label for="qra">QRA (Copie o id do discord)</label>
