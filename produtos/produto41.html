@@ -123,6 +123,16 @@
             <label for="qra">QRA (Copie o id do discord)</label>
             <input type="text" id="qra" name="qra" required>
 
+            <label for="qra2">QRA2 (Copie o id do discord)</label>
+            <input type="text" id="qra2" name="qra2" required>
+
+            <label for="qra3">QRA3 (Copie o id do discord)</label>
+            <input type="text" id="qra3" name="qra3" required>
+
+            <label for="qra4">QRA4 (Copie o id do discord)</label>
+            <input type="text" id="qra4" name="qra4" required>
+
+
             <label for="rg">RG do detido</label>
             <input type="text" id="rg" name="rg" required>
 
@@ -374,6 +384,9 @@
             event.preventDefault();
             
             const qra = document.getElementById('qra').value;
+            const qr2 = document.getElementById('qra2').value;
+            const qra3 = document.getElementById('qra3').value;
+            const qra4 = document.getElementById('qra4').value;
             const rg = document.getElementById('rg').value;
             const detidoName = document.getElementById('detidoName').value;
             const localizacao = document.getElementById('localizacao').value;
@@ -393,7 +406,7 @@
 
             // Criação do FormData para enviar a mensagem e a imagem
             const formData = new FormData();
-            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** <@${qra}>\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n${materiais.join('\n')}`);
+            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** <@${qra}>\n **QRA2:** <@${qra2}>\n **QRA3:** <@${qra3}>\n **QRA4:** <@${qra4}>\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n${materiais.join('\n')}`);
 
             if (imageFile) {
                 formData.append('file', imageFile);
