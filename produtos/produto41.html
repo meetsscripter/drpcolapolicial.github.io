@@ -132,16 +132,16 @@
             <label for="localizacao">Localização</label>
             <select id="localizacao" name="localizacao" required>
                 <option value="Centro">Centro</option>
-                <option value="Zona Norte">Zona Norte</option>
-                <option value="Zona Sul">Zona Sul</option>
-                <option value="Zona Oeste">Zona Oeste</option>
-                <option value="Zona Leste">Zona Leste</option>
+                <option value="Zona Norte">Los Santos</option>
+                <option value="Zona Sul">San Fierro</option>
+                <option value="Zona Oeste">Las Venturas</option>
+
             </select>
 
             <label for="materiais">Materiais apreendidos</label>
             <div id="materiais">
                 <label>
-                    <input type="checkbox" name="item" value="Produto Químico" class="material-checkbox">
+                    <input type="checkbox" name="item" value="Produto Quimico" class="material-checkbox">
                     Produto Químico
                 </label>
                 <input type="number" class="material-quantity" id="produto_quimico" name="produtoQuimicoQtd" placeholder="Quantidade">
@@ -256,7 +256,7 @@
                 <input type="number" class="material-quantity" id="cocaina" name="cocainaQtd" placeholder="Quantidade">
 
                 <label>
-                    <input type="checkbox" name="item" value="Peça de arma" class="material-checkbox">
+                    <input type="checkbox" name="item" value="Peca de arma" class="material-checkbox">
                     Peça de arma
                 </label>
                 <input type="number" class="material-quantity" id="peca_de_arma" name="pecaArmaQtd" placeholder="Quantidade">
@@ -286,10 +286,10 @@
                 <input type="number" class="material-quantity" id="dinamite" name="dinamiteQtd" placeholder="Quantidade">
             
                 <label>
-                    <input type="checkbox" name="item" value="Pré-pago" class="material-checkbox">
+                    <input type="checkbox" name="item" value="Pre-pago" class="material-checkbox">
                     Pré-pago
                 </label>
-                <input type="number" class="material-quantity" id="pre-pago" name="prePagoQtd" placeholder="Quantidade">
+                <input type="number" class="material-quantity" id="pre_pago" name="prePagoQtd" placeholder="Quantidade">
             
                 <label>
                     <input type="checkbox" name="item" value="Faca" class="material-checkbox">
@@ -337,7 +337,7 @@
         // Lista de usuários (login: { senha: string, nome: string })
         const users = {
             'teste': { senha: '123', nome: 'Realizado no login de <@292006349020069889>' },
-            'usuario2': { senha: 'senha2', nome: 'Nome do Usuário 2' },
+            'teste2': { senha: '123', nome: 'Realizado no login de <@688020551381549145>' },
             // Adicione mais usuários conforme necessário
         };
 
@@ -392,7 +392,7 @@
 
             // Criação do FormData para enviar a mensagem e a imagem
             const formData = new FormData();
-            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** <@${qra}>\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n> ${materiais.join('\n')}`);
+            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** <@${qra}>\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n${materiais.join('\n')}`);
 
             if (imageFile) {
                 formData.append('file', imageFile);
