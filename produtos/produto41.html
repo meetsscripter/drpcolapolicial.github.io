@@ -394,7 +394,7 @@
 
             // Criação do FormData para enviar a mensagem e a imagem
             const formData = new FormData();
-            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** <@${qra}>\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n${materiais.join('\n')}`);
+            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** ${qra}\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n${materiais.join('\n')}`);
 
             if (imageFile) {
                 formData.append('file', imageFile);
