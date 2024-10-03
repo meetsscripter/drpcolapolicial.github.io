@@ -245,6 +245,7 @@
             <div class="menu-categories">
                 <button onclick="mostrarIlícitos()">Área de Ilícitos</button>
                 <button onclick="mostrarDúvidas()">Área de Dúvidas</button>
+                <button onclick="mostrarDúvidas()">Área de Formulários</button>
             </div>
 
             <input id="inputBusca" onkeyup="filtrar()" type="text" placeholder="O que você procura?">
@@ -486,6 +487,12 @@
                         <span class="item-name">Limites de viaturas e código 5</span>
                     </a>
                 </li>
+                <li class="dúvidas">
+                    <a href="produtos/produto41.html">
+                        <img src="../imagem/Logo.png" alt="Formulário">
+                        <span class="item-name">Formulário</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -494,16 +501,30 @@
         function mostrarIlícitos() {
             const ilícitos = document.querySelectorAll('.ilícitos');
             const dúvidas = document.querySelectorAll('.dúvidas');
+            const formulario = document.querySelectorAll('.formulario');
             ilícitos.forEach(item => item.style.display = 'block');
             dúvidas.forEach(item => item.style.display = 'none');
+            formulario.forEach(item => item.style.display = 'none');
             document.getElementById('listaProdutos').style.display = 'block';
         }
 
         function mostrarDúvidas() {
             const ilícitos = document.querySelectorAll('.ilícitos');
             const dúvidas = document.querySelectorAll('.dúvidas');
+            const formulario = document.querySelectorAll('.formulario');
             ilícitos.forEach(item => item.style.display = 'none');
+            formulario.forEach(item => item.style.display = 'none');
             dúvidas.forEach(item => item.style.display = 'block');
+            document.getElementById('listaProdutos').style.display = 'block';
+        }
+
+        function mostrarFormulario() {
+            const ilícitos = document.querySelectorAll('.ilícitos');
+            const dúvidas = document.querySelectorAll('.dúvidas');
+            const formulario = document.querySelectorAll('.formulario');
+            ilícitos.forEach(item => item.style.display = 'none');
+            dúvidas.forEach(item => item.style.display = 'none');
+            formulario.forEach(item => item.style.display = 'block');
             document.getElementById('listaProdutos').style.display = 'block';
         }
 
