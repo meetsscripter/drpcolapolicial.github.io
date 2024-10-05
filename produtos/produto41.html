@@ -38,9 +38,8 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
-            overflow-y: auto; /* Permite rolagem se o conteúdo for muito grande */
-            max-height: 80vh; /* Limita a altura do formulário */
-            position: right; /* Para posicionar o botão "Voltar" */
+            overflow-y: auto;
+            max-height: 80vh;
         }
 
         h2 {
@@ -92,13 +91,13 @@
         }
 
         .material-quantity {
-            display: none; /* Ocultar inicialmente */
+            display: none;
         }
 
         .back-button {
-            position: absolute; /* Posiciona o botão de forma absoluta */
-            top: 10px; /* Distância do topo */
-            right: 10px; /* Distância da direita */
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     </style>
 </head>
@@ -113,10 +112,8 @@
         <div id="loginForm">
             <label for="login">Login</label>
             <input type="text" id="login" required>
-            <label for="password">Senha</label>
-            <input type="password" id="password" required>
             <button id="loginButton">Entrar</button>
-            <p class="error-message" id="loginErrorMessage" style="display:none;">Login ou senha inválidos.</p>
+            <p class="error-message" id="loginErrorMessage" style="display:none;">Login inválido.</p>
         </div>
         <!-- Formulário de Relatório -->
         <form id="reportForm" style="display:none;">
@@ -135,7 +132,6 @@
                 <option value="Los Santos">Los Santos</option>
                 <option value="San Fierro">San Fierro</option>
                 <option value="Las Venturas">Las Venturas</option>
-
             </select>
 
             <label for="materiais">Materiais apreendidos</label>
@@ -145,7 +141,6 @@
                     Produto Químico
                 </label>
                 <input type="number" class="material-quantity" id="produto_quimico" name="produtoQuimicoQtd" placeholder="Quantidade">
-                
             
                 <label>
                     <input type="checkbox" name="item" value="Adubo" class="material-checkbox">
@@ -248,6 +243,11 @@
                     Token de Joalheria
                 </label>
                 <input type="number" class="material-quantity" id="token_de_joalheria" name="tokenJoalheriaQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Token de lojinha" class="material-checkbox">
+                    Token de Lojinha
+                </label>
+                <input type="number" class="material-quantity" id="token_de_lojinha" name="tokenJoalheriaQtd" placeholder="Quantidade">
             
                 <label>
                     <input type="checkbox" name="item" value="Cocaina" class="material-checkbox">
@@ -298,7 +298,7 @@
                 <input type="number" class="material-quantity" id="faca" name="facaQtd" placeholder="Quantidade">
             
                 <label>
-                    <input type="checkbox" name="item" value="pecas_de_carro" class="material-checkbox">
+                    <input type="checkbox" name="item" value="Pecas de carro" class="material-checkbox">
                     Peças de carro
                 </label>
                 <input type="number" class="material-quantity" id="pecas_de_carro" name="pecasCarroQtd" placeholder="Quantidade">
@@ -307,17 +307,89 @@
                     <input type="checkbox" name="item" value="357 Magnum" class="material-checkbox">
                     357 Magnum
                 </label>
-                <input type="number" class="material-quantity" id="357_magnum" name="tresCinquentaSeteQtd" placeholder="Quantidade">
+                <input type="number" class="material-quantity" id="357_magnum" name="357_magnumQtd" placeholder="Quantidade">
             
                 <label>
                     <input type="checkbox" name="item" value="Pneu blindado" class="material-checkbox">
-                    Pneu blindado
+                    Pneu Blindado
                 </label>
-                <input type="number" class="material-quantity" id="pneu_blindado" name="pneuBlindadoQtd" placeholder="Quantidade">
+                <input type="number" class="material-quantity" id="pneu_blindado" name="PneublindadoQtd" placeholder="Quantidade">
+
+                <label>
+                    <input type="checkbox" name="item" value="USP" class="material-checkbox">
+                    USP
+                </label>
+                <input type="number" class="material-quantity" id="usp" name="uspQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Revolver" class="material-checkbox">
+                    Revolver
+                </label>
+                <input type="number" class="material-quantity" id="revolver" name="revolverQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Sig sauer" class="material-checkbox">
+                    Sig Sauer
+                </label>
+                <input type="number" class="material-quantity" id="sig_sauer" name="sigsauerQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Glock" class="material-checkbox">
+                    Glock
+                </label>
+                <input type="number" class="material-quantity" id="glock" name="glockQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Five seven" class="material-checkbox">
+                    Five Seven
+                </label>
+                <input type="number" class="material-quantity" id="five_seven" name="fivesevenQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Desert eagle" class="material-checkbox">
+                    Desert Eagle
+                </label>
+                <input type="number" class="material-quantity" id="desert_eagle" name="deserteagleQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Uzi" class="material-checkbox">
+                    Uzi
+                </label>
+                <input type="number" class="material-quantity" id="uzi" name="uziQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Double tec9" class="material-checkbox">
+                    Double Tec-9
+                </label>
+                <input type="number" class="material-quantity" id="double_tec9" name="doubletec9Qtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="G36C" class="material-checkbox">
+                    G36C
+                </label>
+                <input type="number" class="material-quantity" id="g36c" name="g36cQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="IMBEL" class="material-checkbox">
+                    IMBEL IA2
+                </label>
+                <input type="number" class="material-quantity" id="imbel" name="imbelQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Ak47" class="material-checkbox">
+                    AK-47
+                </label>
+                <input type="number" class="material-quantity" id="ak47" name="ak47Qtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="Mossberg" class="material-checkbox">
+                    Mossberg
+                </label>
+                <input type="number" class="material-quantity" id="mossberg" name="mossbergQtd" placeholder="Quantidade">
+                <label>
+                    <input type="checkbox" name="item" value="AA12" class="material-checkbox">
+                    AA12
+                </label>
+                <input type="number" class="material-quantity" id="aa12" name="aa12Qtd" placeholder="Quantidade">
+
+                
+                <!-- Outras caixas de seleção para materiais -->
             </div>
 
+            <label for="relatorio">Breve relatório da ocorrência:</label>
+            <input type="text" id="relatorio" name="relatorio" required>
+
             <label for="imageUpload">Enviar Imagem do inventário do preso</label>
-            <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
 
             <button type="submit">Enviar</button>
         </form>
@@ -334,34 +406,32 @@
         const loginButton = document.getElementById('loginButton');
         const loginErrorMessage = document.getElementById('loginErrorMessage');
 
-        // Lista de usuários (login: { senha: string, nome: string })
+        // Lista de usuários (login: { nome: string })
         const users = {
-            'teste': { senha: '123', nome: 'Realizado no login de <@292006349020069889>' },
-            'teste2': { senha: '123', nome: 'Realizado no login de <@688020551381549145>' },
-            'dantas': { senha: '123', nome: 'Realizado no login de <@476884899694116877>' },
-            'sid': { senha: '123', nome: 'Realizado no login de <@338718496072400896>' },
-            // Adicione mais usuários conforme necessário
+
+            'HJY2': { nome: '<@1042464970392223755>' }, // Sid
+            'POK3': { nome: '<@997151738337439914>' }, // Jason
+            'ADJ1': { nome: '<@1042464970392223755>' }, // Leal
+            'ZXW7': { nome: '<@997151738337439914>' }, // Biel Vasquez
+            'QWE1': { nome: '<@575330942114201611>' }, // Jhon Limon
+            'ASD1': { nome: '<@530815021169508352>' },  // Marcos Junior
+            'RTY7': { nome: '<@725810834424594442>' }, // Arryn
+            'LOK1': { nome: '<@807729422919532554>' }, // Gustavo Loko
+            'QXC1': { nome: '<@820437887882493968>' }, // After Corleone
+            'XY2V': { nome: '<@469664301532053504>' },  // Edson Sant
+            'IOP2': { nome: '<@292006349020069889>' }, // Erick Jhonson
+            'ERT1': { nome: '<@1146529607919616102>' }, // JOninha Santos
+            'NJW2': { nome: '<@1280910661269983313>' }, // Llyson Sousa
+            'IUP1': { nome: '<@913514138695761920>' }, // Luan Sete
+            'CQW1': { nome: '<@895139818877644820>' }, // Medina Amaral
+            'XCV2': { nome: '<@1142162700072398869 >' } // Rodrigo Guedes
         };
 
-        // Mostrar campos de quantidade conforme o item selecionado
-        document.querySelectorAll('.material-checkbox').forEach((checkbox) => {
-            checkbox.addEventListener('change', function() {
-                const relatedInput = document.getElementById(this.value.replace(/\s+/g, '_').toLowerCase());
-                if (this.checked) {
-                    relatedInput.style.display = 'block';
-                } else {
-                    relatedInput.style.display = 'none';
-                }
-            });
-        });
-
-        // Lógica de autenticação
         let userName = ''; // Variável para armazenar o nome do usuário autenticado
         loginButton.addEventListener('click', function() {
             const login = document.getElementById('login').value;
-            const password = document.getElementById('password').value;
 
-            if (users[login] && users[login].senha === password) {
+            if (users[login]) {
                 userName = users[login].nome; // Armazena o nome do usuário
                 loginForm.style.display = 'none'; // Esconde o formulário de login
                 form.style.display = 'block'; // Mostra o formulário de relatório
@@ -375,29 +445,35 @@
             event.preventDefault();
             
             const qra = document.getElementById('qra').value;
+            const relatorio = document.getElementById('relatorio').value;
             const rg = document.getElementById('rg').value;
             const detidoName = document.getElementById('detidoName').value;
             const localizacao = document.getElementById('localizacao').value;
             const materiais = [];
-            const imageFile = document.getElementById('imageUpload').files[0];
+            const imageFiles = document.getElementById('imageUpload').files;
 
             // Coletar materiais e quantidades selecionadas
             document.querySelectorAll('.material-checkbox').forEach((checkbox) => {
                 if (checkbox.checked) {
                     const relatedInput = document.getElementById(checkbox.value.replace(/\s+/g, '_').toLowerCase());
-                    const quantidade = relatedInput.value ? relatedInput.value : 0; // Define 0 se não houver quantidade
-                    materiais.push(`${checkbox.value}: ${quantidade}`); // Adiciona o material e a quantidade
+                    const quantidade = relatedInput.value ? relatedInput.value : 0;
+                    materiais.push(`${checkbox.value}: ${quantidade}`);
                 }
             });
 
-            const webhookURL = "https://discord.com/api/webhooks/1291473547356799087/30L1V-9g-twFsBk758mnLYpI7DIC9i8aAM-ttAZrUkerdVpUNnaFggc_2f6A4px8W58I"; // Substitua com o URL do seu webhook Discord
+            const webhookURL = "https://discord.com/api/webhooks/1291473547356799087/30L1V-9g-twFsBk758mnLYpI7DIC9i8aAM-ttAZrUkerdVpUNnaFggc_2f6A4px8W58I";
 
-            // Criação do FormData para enviar a mensagem e a imagem
             const formData = new FormData();
-            formData.append('content', `# Novo relatório de apreensão (${userName}):\n **QRA:** ${qra}\n **RG do detido:** ${rg}\n **Nome do detido:** ${detidoName}\n **Localização:** ${localizacao}\n **Materiais apreendidos:**\n${materiais.join('\n')}`);
+            formData.append('content', `# 📂 ${userName} Realizou um novo relatório de apreensão\n
+            👮 **QRA:** ${qra}\n
+            📝 **RG do detido:** ${rg}
+            📝 **Nome do detido:** ${detidoName}
+            🌐 **Localização:** ${localizacao}\n
+            📝 **Relatório:** ${relatorio}
+            > 🧰 **Materiais:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
 
-            if (imageFile) {
-                formData.append('file', imageFile);
+            for (let i = 0; i < imageFiles.length; i++) {
+                formData.append(`file${i}`, imageFiles[i]);
             }
 
             try {
@@ -408,16 +484,29 @@
 
                 if (response.ok) {
                     successMessage.style.display = 'block';
-                    errorMessage.style.display = 'none';
-                    form.reset(); // Limpa o formulário
-                    document.querySelectorAll('.material-quantity').forEach(input => input.style.display = 'none'); // Esconde os campos de quantidade
+                    form.reset();
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 3000);
                 } else {
-                    throw new Error('Erro ao enviar o relatório');
+                    errorMessage.style.display = 'block';
                 }
             } catch (error) {
                 errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
             }
+        });
+
+        // Exibir campos de quantidade de materiais
+        const materialCheckboxes = document.querySelectorAll('.material-checkbox');
+        materialCheckboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', function() {
+                const relatedInput = document.getElementById(checkbox.value.replace(/\s+/g, '_').toLowerCase());
+                if (checkbox.checked) {
+                    relatedInput.style.display = 'block';
+                } else {
+                    relatedInput.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
