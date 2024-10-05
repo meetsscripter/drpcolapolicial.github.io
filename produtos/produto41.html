@@ -445,7 +445,7 @@
         const users = {
 
             'HJY2': { nome: '<@1042464970392223755>' }, // Sid
-            'POK3': { nome: '<@997151738337439914>' }, // Jason
+            'POK3': { nome: '<@292006349020069889>' }, // Jason
             'ADJ1': { nome: '<@1042464970392223755>' }, // Leal
             'ZXW7': { nome: '<@997151738337439914>' }, // Biel Vasquez
             'QWE1': { nome: '<@575330942114201611>' }, // Jhon Limon
@@ -496,15 +496,16 @@
             });
 
             const webhookURL = "https://discord.com/api/webhooks/1291473547356799087/30L1V-9g-twFsBk758mnLYpI7DIC9i8aAM-ttAZrUkerdVpUNnaFggc_2f6A4px8W58I";
-
+            
+            // APREENSÕES
             const formData = new FormData();
             formData.append('content', `# 📂 ${userName} Realizou um novo relatório de apreensão\n
-            👮 **QRA:** ${qra}\n
-            📝 **RG do detido:** ${rg}
-            📝 **Nome do detido:** ${detidoName}
-            🌐 **Localização:** ${localizacao}\n
-            📝 **Relatório:** ${relatorio}
-            > 🧰 **Materiais:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
+👮 **QRA:** ${qra}\n
+📝 **RG do detido:** ${rg}
+📝 **Nome do detido:** ${detidoName}
+🌐 **Localização:** ${localizacao}\n
+📝 **Relatório:** ${relatorio}
+> 🧰 **Materiais:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
 
             for (let i = 0; i < imageFiles.length; i++) {
                 formData.append(`file${i}`, imageFiles[i]);
@@ -515,19 +516,47 @@
                     method: 'POST',
                     body: formData
                 });
-
+        
                 if (response.ok) {
                     successMessage.style.display = 'block';
                     form.reset();
                     setTimeout(() => {
                         successMessage.style.display = 'none';
-                    }, 3000);
+                    }, 1000);
                 } else {
                     errorMessage.style.display = 'block';
                 }
             } catch (error) {
                 errorMessage.style.display = 'block';
             }
+
+            // dados-operações
+            const webhookURL2 = "https://discord.com/api/webhooks/1292185080071983165/3lXaKfSXBc-n_I9teAANBXGiNnOIUhGHIArwiA8_sKo5Lr1PAE1VsUUPpuPgaAxMCj_m";
+        
+    const formData2 = new FormData();
+    formData2.append('content', `# 📰 ${localizacao} está acontecendo crimes!\n
+📝 **Relatório:** ${relatorio}\n
+> 🧰 **Materiais encontrados:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
+
+    try {
+        const response = await fetch(webhookURL2, {
+                    method: 'POST',
+                    body: formData2
+                })
+       
+        if (response.ok) {
+            successMessage.style.display = 'block';
+            form.reset();
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 1000);
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    } catch (error) {
+        errorMessage.style.display = 'block';
+    }
+
         });
 
         // Exibir campos de quantidade de materiais
