@@ -128,10 +128,20 @@
 
             <label for="localizacao">Localização</label>
             <select id="localizacao" name="localizacao" required>
-                <option value="Centro">Centro</option>
+                <option value="">Selecione a localização</option>
                 <option value="Los Santos">Los Santos</option>
                 <option value="San Fierro">San Fierro</option>
                 <option value="Las Venturas">Las Venturas</option>
+                <option value="Bone County">Bone County</option>
+                <option value="Red County">Red County</option>
+                <option value="Flinty County">Flinty County</option>
+                <option value="Whetstone County">Whetstone County</option>
+            </select>
+
+            <!-- Campo de Referências que só aparecerá após selecionar a localização -->
+            <label for="referencia" id="referenciaLabel" style="display:none;">Referência</label>
+            <select id="referencia" name="referencia" style="display:none;" required>
+                <!-- As opções serão carregadas dinamicamente -->
             </select>
 
             <label for="materiais">Materiais apreendidos</label>
@@ -141,7 +151,7 @@
                     Produto Químico
                 </label>
                 <input type="number" class="material-quantity" id="produto_quimico" name="produtoQuimicoQtd" placeholder="Quantidade">
-            
+
                 <label>
                     <input type="checkbox" name="item" value="Adubo" class="material-checkbox">
                     Adubo
@@ -409,8 +419,6 @@
                     Molotov
                 </label>
                 <input type="number" class="material-quantity" id="molotov" name="molotovQtd" placeholder="Quantidade">
-
-                
                 <!-- Outras caixas de seleção para materiais -->
             </div>
 
@@ -434,10 +442,11 @@
         const loginForm = document.getElementById('loginForm');
         const loginButton = document.getElementById('loginButton');
         const loginErrorMessage = document.getElementById('loginErrorMessage');
+        const localizacaoSelect = document.getElementById('localizacao');
+        const referenciaSelect = document.getElementById('referencia');
+        const referenciaLabel = document.getElementById('referenciaLabel');
 
-        // Lista de usuários (login: { nome: string })
         const users = {
-
             'HJY2': { nome: '<@1042464970392223755>' }, // Sid
             'POK3': { nome: '<@292006349020069889>' }, // Jason
             'ADJ1': { nome: '<@1042464970392223755>' }, // Leal
@@ -451,35 +460,111 @@
             'NJW2': { nome: '<@1280910661269983313>' }, // Llyson Sousa
             'CQW1': { nome: '<@895139818877644820>' }, // Medina Amaral
             'XCV2': { nome: '<@1142162700072398869 >' } // Rodrigo Guedes
+            // ...restante dos usuários...
         };
 
-        let userName = ''; // Variável para armazenar o nome do usuário autenticado
+        // Mapeamento de localizações para referências
+        const referencias = {
+            'Los Santos': ['Aos arredores da Lojinha próximo ao guetto preto', 
+            'Aos arredores da garagem da praia',
+            'Aos arredores da Garagem próximo a prefeitura',
+            'Aos arredores da Garagem da prefeitura',
+            'Aos arredores da Garagem próximo ao HP de LS',
+            'Aos arredores do Hotel laranja',
+            'Aos arredores do Posto do CJ',
+            'Aos arredores da Lojinha do posto do cj',
+            'Aos arredores da Cracolândia',
+            'Aos arredores da Ammunation perto da praia',
+            'Aos arredores do Lixeiro'
+            ],
+            
+            'San Fierro': ['Aos arredores da Lojinha próximo a cracolandia',
+            'Aos arredores da Cracolandia',
+            'Aos arredores da Garagem perto da cracolandia',
+            'Aos arredores do Posto proximo a cracolandia',
+            'Aos arredores da Garagem proximo a joalheria',
+            'Aos arredores da Garagem proximo ao cinema',
+            'Aos arredores da Garagem da antiga transportadora',
+            'Aos arredores da Garagem da quadra de tênis'
+            ],
+            
+            'Las Venturas': ['Aos arredores da Prefeitura',
+            'Aos arredores da Lojinha ao lado da Delegacia',
+            'Aos arredores da Cracolândia',
+            'Aos arredores da Garagem do banco',
+            'Aos arredores da Lojinha próximo ao banco',
+            'Aos arredores da Lojinha próximo ao pedágio',
+            'Aos arredores da Garagem da Igreja',
+            'Aos arredores do Posto próximo a DP'
+            ],
+
+            'Red County': ['Aos arredores da Lojinha próximo ao emprego de Carniceiro',
+            'Aos arredores da Garagem próximo ao emprego de Carniceiro',
+            'Aos arredores da Garágem próxima a cidade do emprego de Carniceiro',
+            'Aos arredores da Ammunation palomino',
+            'Aos arredores da Garagem palomino'
+            ],
+
+            'Flinty County': ['Aos arredores da Cracolandia fazenda',
+            'Aos arredores da Garagem do greenfarm',
+            'Aos arredores da Garagem do HP ilegal'
+            ],
+            'Whetstone County': ['Aos arredores da Ammunation', 
+            'Aos arredores da Garagem'
+        ]
+        };
+
+        let userName = '';
         loginButton.addEventListener('click', function() {
             const login = document.getElementById('login').value;
 
             if (users[login]) {
-                userName = users[login].nome; // Armazena o nome do usuário
-                loginForm.style.display = 'none'; // Esconde o formulário de login
-                form.style.display = 'block'; // Mostra o formulário de relatório
-                loginErrorMessage.style.display = 'none'; // Esconde a mensagem de erro
+                userName = users[login].nome;
+                loginForm.style.display = 'none';
+                form.style.display = 'block';
+                loginErrorMessage.style.display = 'none';
             } else {
-                loginErrorMessage.style.display = 'block'; // Mostra mensagem de erro
+                loginErrorMessage.style.display = 'block';
             }
         });
 
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
+        // Exibe o menu de referências quando uma localização é selecionada
+        localizacaoSelect.addEventListener('change', function() {
+            const localizacao = localizacaoSelect.value;
+            if (localizacao && referencias[localizacao]) {
+                // Limpa as opções antigas de referências
+                referenciaSelect.innerHTML = '';
+                referencias[localizacao].forEach(ref => {
+                    const option = document.createElement('option');
+                    option.value = ref;
+                    option.textContent = ref;
+                    referenciaSelect.appendChild(option);
+                });
+
+                // Exibe o menu de referências
+                referenciaLabel.style.display = 'block';
+                referenciaSelect.style.display = 'block';
+            } else {
+                // Oculta o menu de referências se nenhuma localização for selecionada
+                referenciaLabel.style.display = 'none';
+                referenciaSelect.style.display = 'none';
+            }
+        });
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
             const qra = document.getElementById('qra').value;
-            const relatorio = document.getElementById('relatorio').value;
             const rg = document.getElementById('rg').value;
             const detidoName = document.getElementById('detidoName').value;
             const localizacao = document.getElementById('localizacao').value;
+            const referencia = document.getElementById('referencia').value;
+            const relatorio = document.getElementById('relatorio').value;
             const materiais = [];
             const imageFiles = document.getElementById('imageUpload').files;
 
-            // Coletar materiais e quantidades selecionadas
-            document.querySelectorAll('.material-checkbox').forEach((checkbox) => {
+                        // Coletar materiais e quantidades selecionadas
+                        document.querySelectorAll('.material-checkbox').forEach((checkbox) => {
                 if (checkbox.checked) {
                     const relatedInput = document.getElementById(checkbox.value.replace(/\s+/g, '_').toLowerCase());
                     const quantidade = relatedInput.value ? relatedInput.value : 0;
@@ -487,16 +572,17 @@
                 }
             });
 
-            const webhookURL = "https://discord.com/api/webhooks/1291473547356799087/30L1V-9g-twFsBk758mnLYpI7DIC9i8aAM-ttAZrUkerdVpUNnaFggc_2f6A4px8W58I";
-            
-            // APREENSÕES
+            const webhookURL = "https://discord.com/api/webhooks/1291452592907489453/yGgV_cgXsznNEOQu2BfPvKRvJPNErdGct1hCMAVU-kWSIJhXy4_BcC51HS9aO0ZZdehi";
+
             const formData = new FormData();
             formData.append('content', `# 📂 ${userName} Realizou um novo relatório de apreensão\n
 👮 **QRA:** ${qra}\n
 📝 **RG do detido:** ${rg}
 📝 **Nome do detido:** ${detidoName}
-🌐 **Localização:** ${localizacao}\n
+🌐 **Localização:** ${localizacao}
+📝 **Referência:** ${referencia}\n
 📝 **Relatório:** ${relatorio}
+
 > 🧰 **Materiais:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
 
             for (let i = 0; i < imageFiles.length; i++) {
@@ -522,37 +608,38 @@
                 errorMessage.style.display = 'block';
             }
 
-            // dados-operações
-            const webhookURL2 = "https://discord.com/api/webhooks/1292185080071983165/3lXaKfSXBc-n_I9teAANBXGiNnOIUhGHIArwiA8_sKo5Lr1PAE1VsUUPpuPgaAxMCj_m";
+            const webhookURL2 = "https://discord.com/api/webhooks/1292171801593643009/PwDrkxA2MdOOSrJr6qszI7e-kEKTqgBEFpscXOSsrPwfXZSbBZAZxpi4RHcD_SPTFDB8";
         
-    const formData2 = new FormData();
-    formData2.append('content', `# 📰 ${localizacao} está acontecendo crimes!\n
-📝 **Relatório:** ${relatorio}\n
-> 🧰 **Materiais encontrados:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
-
-    try {
-        const response = await fetch(webhookURL2, {
-                    method: 'POST',
-                    body: formData2
-                })
-       
-        if (response.ok) {
-            successMessage.style.display = 'block';
-            form.reset();
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 1000);
-        } else {
+        const formData2 = new FormData();
+        formData2.append('content', `# 📰 ${referencia} em ${localizacao} está acontecendo crimes!\n
+    📝 **Relatório:** ${relatorio}\n
+    📝 **Referência:** ${referencia}
+    > 🧰 **Materiais encontrados:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
+    
+        try {
+            const response = await fetch(webhookURL2, {
+                        method: 'POST',
+                        body: formData2
+                    })
+           
+            if (response.ok) {
+                successMessage.style.display = 'block';
+                form.reset();
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 1000);
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        } catch (error) {
             errorMessage.style.display = 'block';
         }
-    } catch (error) {
-        errorMessage.style.display = 'block';
-    }
-
         });
 
-        // Exibir campos de quantidade de materiais
-        const materialCheckboxes = document.querySelectorAll('.material-checkbox');
+        
+
+                // Exibir campos de quantidade de materiais
+                const materialCheckboxes = document.querySelectorAll('.material-checkbox');
         materialCheckboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', function() {
                 const relatedInput = document.getElementById(checkbox.value.replace(/\s+/g, '_').toLowerCase());
