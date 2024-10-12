@@ -434,6 +434,10 @@
         <p class="success-message" id="successMessage" style="display:none;">Relatório enviado com sucesso!</p>
         <p class="error-message" id="errorMessage" style="display:none;">Falha ao enviar o relatório. Tente novamente.</p>
     </div>
+    <div id="loading" style="display: none; text-align: center;">
+        <p>Carregando...</p>
+        <img src="loading.gif" alt="Loading..." style="width: 50px; height: 50px;" />
+    </div>
 
     <script>
         const form = document.getElementById('reportForm');
@@ -514,6 +518,7 @@
         ]
         };
 
+
         let userName = '';
         loginButton.addEventListener('click', function() {
             const login = document.getElementById('login').value;
@@ -554,6 +559,11 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+                // Exibe a animação de carregamento
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block'; // Mostra o carregando
+            successMessage.style.display = 'none'; // Esconde a mensagem de sucesso
+
             const qra = document.getElementById('qra').value;
             const rg = document.getElementById('rg').value;
             const detidoName = document.getElementById('detidoName').value;
@@ -572,7 +582,7 @@
                 }
             });
 
-            const webhookURL = "https://discord.com/api/webhooks/1291452592907489453/yGgV_cgXsznNEOQu2BfPvKRvJPNErdGct1hCMAVU-kWSIJhXy4_BcC51HS9aO0ZZdehi";
+            const webhookURL = "https://discord.com/api/webhooks/1291473547356799087/30L1V-9g-twFsBk758mnLYpI7DIC9i8aAM-ttAZrUkerdVpUNnaFggc_2f6A4px8W58I";
 
             const formData = new FormData();
             formData.append('content', `# 📂 ${userName} Realizou um novo relatório de apreensão\n
@@ -590,25 +600,26 @@
             }
 
             try {
-                const response = await fetch(webhookURL, {
-                    method: 'POST',
-                    body: formData
-                });
-        
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 1000);
-                } else {
-                    errorMessage.style.display = 'block';
-                }
-            } catch (error) {
-                errorMessage.style.display = 'block';
-            }
+        const response = await fetch(webhookURL, {
+            method: 'POST',
+            body: formData
+        });
 
-            const webhookURL2 = "https://discord.com/api/webhooks/1292171801593643009/PwDrkxA2MdOOSrJr6qszI7e-kEKTqgBEFpscXOSsrPwfXZSbBZAZxpi4RHcD_SPTFDB8";
+        if (response.ok) {
+            loading.style.display = 'none'; // Esconde a animação de carregamento
+            successMessage.style.display = 'block'; // Mostra a mensagem de sucesso
+            form.reset();
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 2000);
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    } catch (error) {
+        errorMessage.style.display = 'block';
+    }
+
+            const webhookURL2 = "https://discord.com/api/webhooks/1292185080071983165/3lXaKfSXBc-n_I9teAANBXGiNnOIUhGHIArwiA8_sKo5Lr1PAE1VsUUPpuPgaAxMCj_m";
         
         const formData2 = new FormData();
         formData2.append('content', `# 📰 ${referencia} em ${localizacao} está acontecendo crimes!\n
