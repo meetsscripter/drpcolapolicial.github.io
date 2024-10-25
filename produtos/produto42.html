@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Relatório</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"], select, input[type="file"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+
+        .error-message {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+
+        .material-quantity {
+            display: none;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulário de Relatório</h2>
+        
+        <!-- Botão Voltar -->
+        <a href="../index.html" class="back-button">Voltar para a página inicial</a>
+        
+        <!-- Formulário de Login -->
+        <div id="loginForm">
+            <label for="login">Login</label>
+            <input type="text" id="login" required>
+            <button id="loginButton">Entrar</button>
+            <p class="error-message" id="loginErrorMessage" style="display:none;">Login inválido.</p>
+        </div>
+        <!-- Formulário de Relatório -->
+        <form id="reportForm" style="display:none;">
+
+            <label for="localizacao">Localização</label>
+            <select id="localizacao" name="localizacao" required>
+                <option value="">Selecione a localização</option>
+                <option value="Los Santos">Los Santos</option>
+                <option value="San Fierro">San Fierro</option>
+                <option value="Las Venturas">Las Venturas</option>
+                <option value="Bone County">Bone County</option>
+                <option value="Red County">Red County</option>
+                <option value="Flinty County">Flinty County</option>
+                <option value="Whetstone County">Whetstone County</option>
+            </select>
+
+            <!-- Campo de Referências que só aparecerá após selecionar a localização -->
+            <label for="referencia" id="referenciaLabel" style="display:none;">Referência</label>
+            <select id="referencia" name="referencia" style="display:none;" required>
+                <!-- As opções serão carregadas dinamicamente -->
+            </select>
+
+            <label for="relatorio">Breve relatório da ocorrência:</label>
+            <input type="text" id="relatorio" name="relatorio" required>
+
+            <label for="imageUpload">Anexar provas</label>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <p class="success-message" id="successMessage" style="display:none;">Relatório enviado com sucesso!</p>
+        <p class="error-message" id="errorMessage" style="display:none;">Falha ao enviar o relatório. Tente novamente.</p>
+    </div>
+    <div id="loading" style="display: none; text-align: center;">
+        <p>Carregando...</p>
+        <img src="loading.gif" alt="Loading..." style="width: 50px; height: 50px;" />
+    </div>
+
+    <script>
+        const form = document.getElementById('reportForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginForm = document.getElementById('loginForm');
+        const loginButton = document.getElementById('loginButton');
+        const loginErrorMessage = document.getElementById('loginErrorMessage');
+        const localizacaoSelect = document.getElementById('localizacao');
+        const referenciaSelect = document.getElementById('referencia');
+        const referenciaLabel = document.getElementById('referenciaLabel');
+
+        const users = {
+            'HJY2': { nome: '<@1042464970392223755>' }, // Sid
+            'POK3': { nome: '<@292006349020069889>' }, // Jason
+            'ADJ1': { nome: '<@1042464970392223755>' }, // Leal
+            'ZXW7': { nome: '<@997151738337439914>' }, // Biel Vasquez
+            'FSN3': { nome: '<@1088265185174765608>' }, // Hugo Skunk
+            'ASD1': { nome: '<@530815021169508352>' },  // Marcos Junior
+            'RTY7': { nome: '<@725810834424594442>' }, // Arryn
+            'LOK1': { nome: '<@807729422919532554>' }, // Gustavo Loko
+            'XY2V': { nome: '<@469664301532053504>' },  // Edson Sant
+            'IOP2': { nome: '<@292006349020069889>' }, // Erick Jhonson
+            'NJW2': { nome: '<@1280910661269983313>' }, // Llyson Sousa
+            'CQW1': { nome: '<@895139818877644820>' }, // Medina Amaral
+            'XCV2': { nome: '<@1142162700072398869 >' } // Rodrigo Guedes
+            // ...restante dos usuários...
+        };
+
+        // Mapeamento de localizações para referências
+        const referencias = {
+            'Los Santos': ['Aos arredores da Lojinha próximo ao guetto preto', 
+            'Aos arredores da garagem da praia',
+            'Aos arredores da Garagem próximo a prefeitura',
+            'Aos arredores da Garagem da prefeitura',
+            'Aos arredores da Garagem próximo ao HP de LS',
+            'Aos arredores do Hotel laranja',
+            'Aos arredores do Posto do CJ',
+            'Aos arredores da Lojinha do posto do cj',
+            'Aos arredores da Cracolândia',
+            'Aos arredores da Ammunation perto da praia',
+            'Aos arredores do Lixeiro'
+            ],
+            
+            'San Fierro': ['Aos arredores da Lojinha próximo a cracolandia',
+            'Aos arredores da Cracolandia',
+            'Aos arredores da Garagem perto da cracolandia',
+            'Aos arredores do Posto proximo a cracolandia',
+            'Aos arredores da Garagem proximo a joalheria',
+            'Aos arredores da Garagem proximo ao cinema',
+            'Aos arredores da Garagem da antiga transportadora',
+            'Aos arredores da Garagem da quadra de tênis'
+            ],
+            
+            'Las Venturas': ['Aos arredores da Prefeitura',
+            'Aos arredores da Lojinha ao lado da Delegacia',
+            'Aos arredores da Cracolândia',
+            'Aos arredores da Garagem do banco',
+            'Aos arredores da Lojinha próximo ao banco',
+            'Aos arredores da Lojinha próximo ao pedágio',
+            'Aos arredores da Garagem da Igreja',
+            'Aos arredores do Posto próximo a DP'
+            ],
+
+            'Red County': ['Aos arredores da Lojinha próximo ao emprego de Carniceiro',
+            'Aos arredores da Garagem próximo ao emprego de Carniceiro',
+            'Aos arredores da Garágem próxima a cidade do emprego de Carniceiro',
+            'Aos arredores da Ammunation palomino',
+            'Aos arredores da Garagem palomino'
+            ],
+
+            'Flinty County': ['Aos arredores da Cracolandia fazenda',
+            'Aos arredores da Garagem do greenfarm',
+            'Aos arredores da Garagem do HP ilegal'
+            ],
+            'Whetstone County': ['Aos arredores da Ammunation', 
+            'Aos arredores da Garagem'
+        ]
+        };
+
+
+        let userName = '';
+        loginButton.addEventListener('click', function() {
+            const login = document.getElementById('login').value;
+
+            if (users[login]) {
+                userName = users[login].nome;
+                loginForm.style.display = 'none';
+                form.style.display = 'block';
+                loginErrorMessage.style.display = 'none';
+            } else {
+                loginErrorMessage.style.display = 'block';
+            }
+        });
+
+        // Exibe o menu de referências quando uma localização é selecionada
+        localizacaoSelect.addEventListener('change', function() {
+            const localizacao = localizacaoSelect.value;
+            if (localizacao && referencias[localizacao]) {
+                // Limpa as opções antigas de referências
+                referenciaSelect.innerHTML = '';
+                referencias[localizacao].forEach(ref => {
+                    const option = document.createElement('option');
+                    option.value = ref;
+                    option.textContent = ref;
+                    referenciaSelect.appendChild(option);
+                });
+
+                // Exibe o menu de referências
+                referenciaLabel.style.display = 'block';
+                referenciaSelect.style.display = 'block';
+            } else {
+                // Oculta o menu de referências se nenhuma localização for selecionada
+                referenciaLabel.style.display = 'none';
+                referenciaSelect.style.display = 'none';
+            }
+        });
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+                // Exibe a animação de carregamento
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block'; // Mostra o carregando
+            successMessage.style.display = 'none'; // Esconde a mensagem de sucesso
+
+            const localizacao = document.getElementById('localizacao').value;
+            const referencia = document.getElementById('referencia').value;
+            const relatorio = document.getElementById('relatorio').value;
+            const imageFiles = document.getElementById('imageUpload').files;
+
+
+            const webhookURL = "https://discord.com/api/webhooks/1299416959384948847/Lmr6vCqMH30_wdnyCbLAGSZPq1ui1WveSurKyV7ruPzRlC2gDmWF4gW9-sKOI44NJr0U";
+
+            const formData = new FormData();
+            formData.append('content', `# 📂 ${userName} Encontrou provas em ${localizacao} para mapeamentos\n
+📝 **Referência:** ${referencia}
+📝 **Relatório:** ${relatorio}`);
+
+            for (let i = 0; i < imageFiles.length; i++) {
+                formData.append(`file${i}`, imageFiles[i]);
+            }
+
+            try {
+        const response = await fetch(webhookURL, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            loading.style.display = 'none'; // Esconde a animação de carregamento
+            successMessage.style.display = 'block'; // Mostra a mensagem de sucesso
+            form.reset();
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 2000);
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    } catch (error) {
+        errorMessage.style.display = 'block';
+    }        
+        });
+
+
+    </script>
+</body>
+</html>
