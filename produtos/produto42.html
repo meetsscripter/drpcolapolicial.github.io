@@ -99,6 +99,14 @@
             top: 10px;
             right: 10px;
         }
+
+        .current-time {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
     </style>
 </head>
 <body>
@@ -107,6 +115,9 @@
         
         <!-- Botão Voltar -->
         <a href="../index.html" class="back-button">Voltar para a página inicial</a>
+
+        <!-- Exibir Hora Atual -->
+        <div class="current-time" id="currentTime"></div>
         
         <!-- Formulário de Login -->
         <div id="loginForm">
@@ -163,6 +174,7 @@
         const localizacaoSelect = document.getElementById('localizacao');
         const referenciaSelect = document.getElementById('referencia');
         const referenciaLabel = document.getElementById('referenciaLabel');
+        const currentTimeElement = document.getElementById('currentTime');
 
         const users = {
             'HJY2': { nome: '<@1042464970392223755>' }, // Sid
@@ -277,6 +289,10 @@
             const loading = document.getElementById('loading');
             loading.style.display = 'block'; // Mostra o carregando
             successMessage.style.display = 'none'; // Esconde a mensagem de sucesso
+            const now = new Date();
+            const optionsDate = { year: 'numeric', month: '2-digit', day: '2-digit' }; // Formato da data: dia/mês/ano
+            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }; // Formato da hora: 24h
+            const currentTime = `${now.toLocaleDateString('pt-BR', optionsDate)} - ${now.toLocaleTimeString('pt-BR', optionsTime)}`;
 
             const localizacao = document.getElementById('localizacao').value;
             const referencia = document.getElementById('referencia').value;
@@ -287,7 +303,7 @@
             const webhookURL = "https://discord.com/api/webhooks/1299416959384948847/Lmr6vCqMH30_wdnyCbLAGSZPq1ui1WveSurKyV7ruPzRlC2gDmWF4gW9-sKOI44NJr0U";
 
             const formData = new FormData();
-            formData.append('content', `# 📂 ${userName} Encontrou provas em ${localizacao} para mapeamentos\n
+            formData.append('content', `# 📂 ${userName} Encontrou provas em ${localizacao} para mapeamentos ${currentTime}\n
 📝 **Referência:** ${referencia}
 📝 **Relatório:** ${relatorio}`);
 
@@ -316,6 +332,15 @@
     }        
         });
 
+        function updateTime() {
+    const now = new Date();
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' }; // Formato da data: dia/mês/ano
+    const dateString = now.toLocaleDateString('pt-BR', options); // Converte a data para o formato brasileiro
+    const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }); // Hora no formato 24h
+    currentTimeElement.textContent = `Data Atual: ${dateString} - Hora Atual: ${timeString}`; // Exibe data e hora
+}
+
+        setInterval(updateTime, 1000); // Atualiza a hora a cada segundo
 
     </script>
 </body>
