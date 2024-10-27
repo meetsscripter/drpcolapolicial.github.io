@@ -301,7 +301,19 @@
             const imageFiles = document.getElementById('imageUpload').files;
 
 
-            const webhookURL = "https://discord.com/api/webhooks/1295077340426014720/PcqiKq0ad1wkQjWeMH1ltO0x72XDlcBnjfHXckd5fm4NoW-9WWBdCtrDsFwKpdSLJtTC";
+            const cityWebhookMap = {
+            "Los Santos": "https://discord.com/api/webhooks/1300151662677065900/OemIF8i1JiS5Exp2qoVBVEr-Mz33-_Ve3TIpVvVB6FgpKPpG__SmVKkVoj9qQCQSkZki",
+            "San Fierro": "https://discord.com/api/webhooks/1300151759489990848/mm6lCkxDgVlb7-QbZb8isuhg3Z4qBDza0Utf0udXc5MpFjrBhdUW-tsB1M-WW9ELng1y",
+            "Las Venturas": "https://discord.com/api/webhooks/1300151851894833234/j1F_rls6SC7sJtf97SjDSW9xaVfuvtFhc4QURcbmBKHEL2q2NZN2iwzk8YpQlxYXAZDJ",
+            "Bone County": "https://discord.com/api/webhooks/1300152034233683968/cHYx0A0jcRaLzhdxa7Sp80f-H2gW9Y7bKe1Akx2EKxS-ctxc265L07UQBXTX4MuUUP5e",
+            "Red County": "https://discord.com/api/webhooks/1300152134632869948/jD5wuuEtvbWRmX7ITZM1wbnlPhGBmSfIW2CE_LulmPMiaBJlnlbQt1Gyc34AE4h-_fOV",
+            "Flinty County": "https://discord.com/api/webhooks/1300152228434153563/5jeeV0RbEPAqg-MK1sD0aDDEYLAPTakLVk_ZPsEZ4Ye91sz3n80cYV8IKwpcIJCBpTZR",
+            "Whetstone County": "https://discord.com/api/webhooks/1300152356947890318/C1RVhxGTXgyTLODlUgK4aYDk8acB0UI5NYRsdtpvyY9BOZXr9RQ9cd4064Y96cfms9GQ"
+            };
+
+            // Supondo que você tenha uma variável `localizacao` que armazena a cidade selecionada
+            const selectedCity = localizacao; // ou a forma que você está capturando a cidade
+            const webhookURL = cityWebhookMap[selectedCity];
 
             const formData = new FormData();
             formData.append('content', `# 📂 ${userName} Encontrou provas em ${localizacao} para mapeamentos ${currentTime}\n
