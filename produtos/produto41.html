@@ -642,42 +642,15 @@
         errorMessage.style.display = 'block';
     }
 
-            const webhookURL2 = "https://discord.com/api/webhooks/1292185080071983165/3lXaKfSXBc-n_I9teAANBXGiNnOIUhGHIArwiA8_sKo5Lr1PAE1VsUUPpuPgaAxMCj_m";
-        
-        const formData2 = new FormData();
-        formData2.append('content', `# 📰 ${referencia} em ${localizacao} está acontecendo crimes!\n
-    📝 **Relatório:** ${relatorio}\n
-    📝 **Referência:** ${referencia}
-    > 🧰 **Materiais encontrados:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
-    
-        try {
-            const response = await fetch(webhookURL2, {
-                        method: 'POST',
-                        body: formData2
-                    })
-           
-            if (response.ok) {
-                successMessage.style.display = 'block';
-                form.reset();
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 1000);
-            } else {
-                errorMessage.style.display = 'block';
-            }
-        } catch (error) {
-            errorMessage.style.display = 'block';
-        }
-
-const webhookURL3 = "https://discord.com/api/webhooks/1299884926572957767/uUkwgdiI0XpejxifATPyAFZMe2UOdOe4Sqnzw08Cww1VqvMNP3PkUMADvesfYAIpus4z";
+const webhookURL2 = "https://discord.com/api/webhooks/1299884926572957767/uUkwgdiI0XpejxifATPyAFZMe2UOdOe4Sqnzw08Cww1VqvMNP3PkUMADvesfYAIpus4z";
 
             const formData3 = new FormData();
-            formData3.append('content', `📦 [APREENSÃO] ${userName} Realizou uma apreensão ${currentTime}`);
+            formData2.append('content', `📦 [APREENSÃO] ${userName} Realizou uma apreensão ${currentTime}`);
 
             try {
-        const response = await fetch(webhookURL3, {
+        const response = await fetch(webhookURL2, {
             method: 'POST',
-            body: formData3
+            body: formData2
         });
 
         if (response.ok) {
