@@ -343,34 +343,7 @@
     } catch (error) {
         errorMessage.style.display = 'block';
     }
-
-const webhookURL2 = "https://discord.com/api/webhooks/1299885517579747402/Y_sYqISWRK4amYDNKKwyEefQ71--U15iMrSYd9G6286AIL19_1v0y8eTC2WO2c9RbIOQ";
-
-            const formData2 = new FormData();
-            formData2.append('content', `🔎 [INVESTIGAÇÃO] ${userName} Realizou uma investigação ${currentTime}`);
-
-            try {
-        const response = await fetch(webhookURL2, {
-            method: 'POST',
-            body: formData2
-        });
-
-        if (response.ok) {
-            loading.style.display = 'none'; // Esconde a animação de carregamento
-            successMessage.style.display = 'block'; // Mostra a mensagem de sucesso
-            form.reset();
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 2000);
-        } else {
-            errorMessage.style.display = 'block';
-        }
-    } catch (error) {
-        errorMessage.style.display = 'block';
-    }
-
-
-        
+       
         });
 
         function updateTime() {
