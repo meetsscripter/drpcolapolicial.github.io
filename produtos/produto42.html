@@ -493,7 +493,7 @@ loginButton.addEventListener('click', function() {
 
             // Supondo que você tenha uma variável `localizacao` que armazena a cidade selecionada
             const selectedCity = localizacao; // ou a forma que você está capturando a cidade
-            const webhookURL = cityWebhookMap[selectedCity];
+            const cityWebhook = cityWebhookMap[selectedCity];
 
             const formData = new FormData();
             formData.append('content', `# 📂 ${userName} Encontrou provas em ${localizacao} para mapeamentos ${currentTime}\n
