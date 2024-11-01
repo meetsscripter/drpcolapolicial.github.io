@@ -450,42 +450,41 @@
         const referenciaSelect = document.getElementById('referencia');
         const referenciaLabel = document.getElementById('referenciaLabel');
     
-        const users = {
-            'POK3': { nome: '<@292006349020069889>', webhook: "https://discord.com/api/webhooks/1301591187408556108/r1iYESy_p-OHK6XFRkl3fodRkO7JsHJrVkci4Ew5PjNHRBy-t95D-deQ9_e-GaPJj4z5" }, // Jason
-            'ADJ1': { nome: '<@1042464970392223755>', webhook: "https://discord.com/api/webhooks/1301591187408556108/r1iYESy_p-OHK6XFRkl3fodRkO7JsHJrVkci4Ew5PjNHRBy-t95D-deQ9_e-GaPJj4z5" }, // Leal
-            'ZXW7': { nome: '<@997151738337439914>', webhook: "https://discord.com/api/webhooks/1301591187408556108/r1iYESy_p-OHK6XFRkl3fodRkO7JsHJrVkci4Ew5PjNHRBy-t95D-deQ9_e-GaPJj4z5" }, // Biel Vasquez
-            'FSN3': { nome: '<@1088265185174765608>', webhook: "https://discord.com/api/webhooks/1301591187408556108/r1iYESy_p-OHK6XFRkl3fodRkO7JsHJrVkci4Ew5PjNHRBy-t95D-deQ9_e-GaPJj4z5" }, // Hugo Skunk
-            'ASD1': { nome: '<@530815021169508352>', webhook: "https://discord.com/api/webhooks/1301591187408556108/r1iYESy_p-OHK6XFRkl3fodRkO7JsHJrVkci4Ew5PjNHRBy-t95D-deQ9_e-GaPJj4z5" },  // Marcos Junior
+              const users = {
+            'POK3': { nome: '<@292006349020069889>', nome2: 'Jason Todd', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Jason
+            'ADJ1': { nome: '<@1042464970392223755>', nome2: 'Albert Leal', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Leal
+            'ZXW7': { nome: '<@997151738337439914>', nome2: 'Biel Vasquez', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Biel Vasquez
+            'FSN3': { nome: '<@1088265185174765608>', nome2: 'Hugo Skunk', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Hugo Skunk
+            'ASD1': { nome: '<@530815021169508352>', nome2: 'Marcos Junior', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" },  // Marcos Junior
 
-            'RTY7': { nome: '<@725810834424594442>', webhook: "https://discord.com/api/webhooks/1301582326467395615/8gK_mOR9hox_ARLunv7O2locg5gnimymBmrcfWAWp6zgDVAUzYTh5e1A7fKb3h6_zbRz" }, // Arryn
-            'LOK1': { nome: '<@807729422919532554>', webhook: "https://discord.com/api/webhooks/1301582371111440505/qK2l55rFHB_GTPRYgyzt8CRqUARxKEKkfYVn85ay_Qlau-s10V_m-fQjAj5BelsABx0H" }, // Gustavo Loko
-            'XY2V': { nome: '<@469664301532053504>', webhook: "https://discord.com/api/webhooks/1301582418142167081/3mJ-KjtyJgKukbuhOhX4qykFo65LOSPp2zplsvFWoVSunIRXBABOvW_nvZcZEmiJd9sp" },  // Edson Sant
-            'IOP2': { nome: '<@896768740253917195>', webhook: "https://discord.com/api/webhooks/1301582470101073930/CSjI8C8G_FTcxL8m7BlVoGxdvjlkmmdCjonliDtr9gflE7pqwlj5wxJ-ZVD8-oY_g-3a" }, // Erick Jhonson
-            'NJW2': { nome: '<@1280910661269983313>', webhook: "https://discord.com/api/webhooks/1301582509947097098/z5b2HxLBY-5HsDjFFtGjd3XInCZNgjQuxbQLDokrrsWqyDcNcB5hhyIYk5--itTXUyGQ" }, // Llyson Sousa
-            'CQW1': { nome: '<@895139818877644820>', webhook: "https://discord.com/api/webhooks/1301582555522404403/-iYw9awZBHlRtuGDYewSXz7RZxYGlQkIM5IhQQFMnEaSD1y45Lwqc4oHaJyaZTVr_iJz" }, // Medina Amaral
-            'X2SD': { nome: '<@1238701523748520034>', webhook: "https://discord.com/api/webhooks/1301582589248667738/0jKVZARd5-ni5a2fo3cWKbQK4HFpuw6BXKT1HPldmAdG1phAomRzLHVy8EjChD47SB34" }, // Joninhas S. - 45777
+            'RTY7': { nome: '<@725810834424594442>', nome2: 'Arryn', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Arryn
+            'LOK1': { nome: '<@807729422919532554>', nome2: 'Gustavo Loko', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Gustavo Loko
+            'XY2V': { nome: '<@469664301532053504>', nome2: 'Edson Sant', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" },  // Edson Sant
+            'IOP2': { nome: '<@896768740253917195>', nome2: 'Erick Jhonson', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Erick Jhonson
+            'NJW2': { nome: '<@1280910661269983313>', nome2: 'Llyson Sousa', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Llyson Sousa
+            'CQW1': { nome: '<@895139818877644820>', nome2: 'Medina Amaral', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Medina Amaral
+            'X2SD': { nome: '<@1238701523748520034>', nome2: 'Joninhas S', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Joninhas S. - 45777
 
-            'TGH2': { nome: '<@978838157665636382>', webhook: "https://discord.com/api/webhooks/1301588587971743885/PumnKyRP2RrAViaOXYoMAf3H_6bVepvAngsQt6f85_Uv3W7KE3DawHyaN3ajkwiP_fLC" }, // Soldado J. Mazzunio - 30211
-            'KLN1': { nome: '<@499536537520832512>', webhook: "https://discord.com/api/webhooks/1301588646629216347/ANx-D5P2C2mFxNfJQmL0PAnqArfNUH2qG-s6Wdz7ynNoWd16eodGQFbgFtbosGLTsmVo" }, // Prime - 53007
-            'KJGM': { nome: '<@340282044661760000>', webhook: "https://discord.com/api/webhooks/1301588686244413462/3j1DBed5WakTFGPPs-SfFd1SXFh2AQxNIT6Gtxxs025gyQfVuKyVkfORgD6eiYSc2j7p" }, //  L. Brandão - 22878
-            'BOP3': { nome: '<@340282044661760000>', webhook: "https://discord.com/api/webhooks/1301588731332919366/iR-qOTZjI_PLgFrbf653SM2LLhKPGktTeDtCEYIRSrdgs8O4U9vjac7xnEyYqmIh_oU9" },  // Eryk Moreira - 40453
-            'RMX1': { nome: '<@1258465751971532834>', webhook: "https://discord.com/api/webhooks/1301582470101073930/CSjI8C8G_FTcxL8m7BlVoGxdvjlkmmdCjonliDtr9gflE7pqwlj5wxJ-ZVD8-oY_g-3a" }, // Erick Jhonson
-            'QZW2': { nome: '<@226685502571413504>', webhook: "https://discord.com/api/webhooks/1301588901588111513/9l4fuldXBqAcso8Gb49VtZ5aQ0xFIKctpMFXeKmbGdSBX0COOGilAAuhscEZS8Bluzcu" }, // S. Souza - 1411 
-            'JBP1': { nome: '<@1084985834433957938>', webhook: "https://discord.com/api/webhooks/1301588952322408601/vv9nBKyAI5GgbpxN_bv5GNKSKhYeGjELXDHFznh81xyu7jdsILPznfddOydpE9QCWFow" }, // V. Runner - 50412
-            'JHGH': { nome: '<@761444242861195305>', webhook: "https://discord.com/api/webhooks/1301588993284247584/5H_DDXBux67A94kupXixGwMht72DrcrAc2bfJdJFQlpaPwdCcp3eBNAPFyp-qMQx4adx" }, // C. Berthoix - 18435
-            'XNSF': { nome: '<@1135283008606326905>', webhook: "https://discord.com/api/webhooks/1301589066529112074/Bs7eawHRR6WYz6Bl7LxheXTaaBKwpAyq13C3DHtC2vnDmacZgK7IyZHa4f8IMzem3pLU" }, // M. Berthoix - 23444
-            'JBP1': { nome: '<@1084985834433957938>', webhook: "https://discord.com/api/webhooks/1301589483271098449/_DV7PN1qJkVXJCJACSRJ4W4lIBY8Qemau5ck56YQ_aIvBhph9hDsRNMLb1rSHmNvUpRG" }, // V. Runner - 50412
-            'MHNS': { nome: '<@934521802770751579>', webhook: "https://discord.com/api/webhooks/1301589111777394728/xLyMLFtFiuVeQmXeCsjQXoDBWqBS6zubwo4Ii9DErlAH_9NMLHcgRYV8ocQdNladaWo1" }, // A. Medellin - 24117
+            'TGH2': { nome: '<@978838157665636382>', nome2: 'J. Mazzunio', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Soldado J. Mazzunio - 30211
+            'KLN1': { nome: '<@499536537520832512>', nome2: 'Prime', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Prime - 53007
+            'KJGM': { nome: '<@340282044661760000>', nome2: 'L. Brandão', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, //  L. Brandão - 22878
+            'BOP3': { nome: '<@340282044661760000>', nome2: 'Eryk Moreira', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" },  // Eryk Moreira - 40453
+            'RMX1': { nome: '<@1258465751971532834>', nome2: 'Erick Jhonson', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Erick Jhonson
+            'QZW2': { nome: '<@226685502571413504>', nome2: 'S. Souza', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // S. Souza - 1411 
+            'JBP1': { nome: '<@1084985834433957938>', nome2: 'V. Runner', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // V. Runner - 50412
+            'JHGH': { nome: '<@761444242861195305>', nome2: 'C. Berthoix', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // C. Berthoix - 18435
+            'XNSF': { nome: '<@1135283008606326905>', nome2: 'M. Berthoix', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // M. Berthoix - 23444
+            'MHNS': { nome: '<@934521802770751579>', nome2: 'A. Medellin', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // A. Medellin - 24117
 
-            'PLQ1': { nome: '<@528636374740500500>', webhook: "https://discord.com/api/webhooks/1301589652930695301/2C84lvYT-3IpBwzudFdWybuORWjCg8ZDCv73WOcJ2VW50rwHPyy8poHineuauasD_dT7" }, // Mano Adeus - 44166
-            'ZFG2': { nome: '<@620769460114161667>', webhook: "https://discord.com/api/webhooks/1301589719976775742/kSiE24Q4R4eKTREULDwh0FYmFaw5A2Wa5cCmSarRDCQoPAU5lp6M2T90bz6kYHE0_KNZ" }, // Vinceratti - 1233 
-            'MJGN': { nome: '<@1115867304664772648>', webhook: "https://discord.com/api/webhooks/1301589808774250568/ASNE9_qlIlOclWkYUmiRtHS9bTzd95maLsgkoWYQFjn2EUvwPCHUReSyJBirlutaqXgO" }, // M. Petrov - 50262
-            'WXR1': { nome: '<@1271717956648304681>', webhook: "https://discord.com/api/webhooks/1301589861773475900/SBtzUSTk7zKIzin8JLwZRzbFNXoPPoPlkxuviQ0PkAGnW2UL9K0eau1GQOP3jIoRwRl8" },  // Puro - 54022
-            'HGM4': { nome: '<@840037816377540691>', webhook: "https://discord.com/api/webhooks/1301589908028395541/g7z9xqwKfWTrXiUElPppp2i_firkFSsDHz7KOwi5yAn5WaY00nF8GxsqV0-JTmt_hDDC" },  // G. Silva - 55979
-            'CNV3': { nome: '<@699006343763460106>', webhook: "https://discord.com/api/webhooks/1301589956044525658/MKop9gC-FJF4rdG35-7jrvsIBknmTJnqEmtcrhA2vtI9hSvyC-LvJpJExm2wViqTlMM7" }, // Derick Pontes 24065  
-            'FRD3': { nome: '<@981008628968476743>', webhook: "https://discord.com/api/webhooks/1301590029604356240/CHd1sd1JwRDcZWG9sTL2OEJgSpcuhAJUFWgPFObwBg1WCdIMw_Jm_YxBG1_E64ewZRWL" }, // V. Agertt - 55978
-            'NPK2': { nome: '<@1292301567801954442>', webhook: "https://discord.com/api/webhooks/1301590086152097792/RIhiSOcSICiWMYPL8Soom3o_5_7TmBIwJxEA7Qptsih88MfVjK-WvlsdVinu07D4L80q" }, // RobGol Bacana - 36690 
-            'YQV1': { nome: '<@717805299456671836>', webhook: "https://discord.com/api/webhooks/1301590130028449834/hXua96jfcRzVssKhNOP8CVDLG-bulxc2NnItGfrin3ucGEwrP0GP0-pdCd5IYLaBff5k" }, // Daniel Vale - 15096
+            'PLQ1': { nome: '<@528636374740500500>', nome2: 'Mano Adeus', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Mano Adeus - 44166
+            'ZFG2': { nome: '<@620769460114161667>', nome2: 'Vinceratti', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Vinceratti - 1233 
+            'MJGN': { nome: '<@1115867304664772648>', nome2: 'M. Petrov', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // M. Petrov - 50262
+            'WXR1': { nome: '<@1271717956648304681>', nome2: 'Puro', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" },  // Puro - 54022
+            'HGM4': { nome: '<@840037816377540691>', nome2: 'G. Silva', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" },  // G. Silva - 55979
+            'CNV3': { nome: '<@699006343763460106>', nome2: 'Derick Pontes', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Derick Pontes 24065  
+            'FRD3': { nome: '<@981008628968476743>', nome2: 'V. Agertt', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // V. Agertt - 55978
+            'NPK2': { nome: '<@1292301567801954442>', nome2: 'RobGol Bacana', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // RobGol Bacana - 36690 
+            'YQV1': { nome: '<@717805299456671836>', nome2: 'Daniel Vale', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Daniel Vale - 15096
             // Adicione os webhooks para todos os outros usuários
         };
     
@@ -541,6 +540,8 @@
         };
     
         let userName = '';
+        let userName2 = '';
+        let userLogin = '';
         let userWebhook = '';
     
         loginButton.addEventListener('click', function() {
@@ -548,14 +549,123 @@
     
             if (users[login]) {
                 userName = users[login].nome;
+                userName2 = users[login].nome2;
+                userLogin = login; // Armazena o login do usuário que entrou
                 userWebhook = users[login].webhook; // Armazenando o webhook do usuário
                 loginForm.style.display = 'none';
                 form.style.display = 'block';
+                // Verificar se já existe uma contagem de relatórios para o usuário
+                const reportCount = localStorage.getItem(`reportCount_${login}`) || 0;
+
                 loginErrorMessage.style.display = 'none';
             } else {
                 loginErrorMessage.style.display = 'block';
             }
         });
+
+
+const authorizedLogins = ['POK3']; // Substitua pelos logins que têm permissão        
+const resetAllCountsButton = document.getElementById('resetAllCountsButton');
+const confirmResetButton = document.createElement('button'); // Cria um novo botão
+confirmResetButton.textContent = 'Confirmar'; // Define o texto do botão
+confirmResetButton.style.display = 'none'; // Esconde o botão inicialmente
+// ARTE
+confirmResetButton.style.backgroundColor = '#5cb85c'; // Cor de fundo verde claro
+confirmResetButton.style.color = 'white'; // Cor do texto
+confirmResetButton.style.border = 'none'; // Remove a borda
+confirmResetButton.style.padding = '5px 10px'; // Botão pequeno e compacto
+confirmResetButton.style.fontSize = '14px'; // Tamanho de fonte menor
+confirmResetButton.style.borderRadius = '5px'; // Bordas arredondadas
+confirmResetButton.style.cursor = 'pointer'; // Cursor de ponteiro ao passar o mouse
+confirmResetButton.style.position = 'fixed'; // Posição fixa na tela
+confirmResetButton.style.top = '50%'; // Centraliza verticalmente
+confirmResetButton.style.left = '50%'; // Centraliza horizontalmente
+confirmResetButton.style.width = '120px'; // Define uma largura fixa para o botão
+confirmResetButton.style.transform = 'translate(-50%, -50%)'; // Ajusta para o centro exato
+confirmResetButton.style
+document.body.appendChild(confirmResetButton); // Adiciona o botão ao DOM
+
+// Botão de negar
+const denyResetButton = document.createElement('button');
+denyResetButton.textContent = 'Negar';
+denyResetButton.style.display = 'none'; // Esconde o botão inicialmente
+denyResetButton.style.backgroundColor = '#d9534f'; // Cor de fundo vermelho
+denyResetButton.style.color = 'white'; // Cor do texto
+denyResetButton.style.border = 'none'; // Remove a borda
+denyResetButton.style.padding = '5px 10px'; // Botão pequeno e compacto
+denyResetButton.style.fontSize = '14px'; // Tamanho de fonte menor
+denyResetButton.style.borderRadius = '5px'; // Bordas arredondadas
+denyResetButton.style.cursor = 'pointer'; // Cursor de ponteiro ao passar o mouse
+denyResetButton.style.position = 'fixed'; // Posição fixa na tela
+denyResetButton.style.top = '60%'; // Um pouco abaixo do botão de confirmar
+denyResetButton.style.left = '50%'; // Centraliza horizontalmente
+denyResetButton.style.transform = 'translate(-50%, -50%)'; // Ajusta para o centro exato
+denyResetButton.style.zIndex = '1000'; // Garante que o botão fique acima de outros elementos
+denyResetButton.style.width = '120px'; // Define uma largura fixa para o botão
+denyResetButton.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)'; // Sombra para um efeito de elevação
+
+document.body.appendChild(denyResetButton); // Adiciona o botão ao DOM
+
+resetAllCountsButton.addEventListener('click', function() {
+    if (authorizedLogins.includes(userLogin)) {
+        // Mostra o botão de confirmação
+        confirmResetButton.style.display = 'block';
+        denyResetButton.style.display = 'block'; // Mostra o botão de negar
+    } else {
+        alert('Você não tem permissão para executar esta ação.');
+    }
+});
+
+// Lógica para quando o botão de confirmação for clicado
+confirmResetButton.addEventListener('click', function() {
+    if (authorizedLogins.includes(userLogin)) {
+        // Percorra todas as chaves no localStorage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+
+            // Verifique se a chave começa com 'reportCount_'
+            if (key.startsWith('reportCount_')) {
+                localStorage.setItem(key, 0); // Zere a contagem
+            }
+        }
+
+        console.log('Contagem de relatórios para todos os usuários foi zerada.');
+        alert('A contagem de relatórios para todos os usuários foi zerada com sucesso.');
+
+        // Esconde o botão de confirmação novamente
+        confirmResetButton.style.display = 'none';
+        denyResetButton.style.display = 'none'; // Esconde o botão de negar
+    }
+});
+
+// Lógica do botão de negar
+denyResetButton.addEventListener('click', function() {
+    alert('A contagem de relatórios não foi zerada.');
+    confirmResetButton.style.display = 'none'; // Esconde o botão de confirmar
+    denyResetButton.style.display = 'none'; // Esconde o botão de negar
+});
+
+loginButton.addEventListener('click', function() {
+    const login = document.getElementById('login').value;
+
+    if (users[login]) {
+        userLogin = login; // Armazena o login do usuário que entrou
+        userName = users[login].nome;
+        userName2 = users[login].nome2;
+        loginForm.style.display = 'none';
+        form.style.display = 'block';
+        loginErrorMessage.style.display = 'none';
+
+        // Verifica se o usuário está autorizado a ver o botão
+        if (authorizedLogins.includes(userLogin)) {
+            resetAllCountsButton.style.display = 'block'; // Mostra o botão
+        } else {
+            resetAllCountsButton.style.display = 'none'; // Esconde o botão
+        }
+    } else {
+        loginErrorMessage.style.display = 'block';
+    }
+});
     
         // Exibe o menu de referências quando uma localização é selecionada
         localizacaoSelect.addEventListener('change', function() {
@@ -580,6 +690,13 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
     
+
+            // Incrementar a contagem de relatórios para o usuário atual
+            let reportCount = parseInt(localStorage.getItem(`reportCount_${userName2}`)) || 0;
+            reportCount += 1;
+            localStorage.setItem(`reportCount_${userName2}`, reportCount);
+
+
             const loading = document.getElementById('loading');
             loading.style.display = 'block';
             successMessage.style.display = 'none';
@@ -639,15 +756,7 @@
     
                 // Resetando o FormData para enviar ao webhook do usuário
                 formData.delete('content'); // Remove o conteúdo já enviado para a cidade
-                formData.append('content', `# 📂 ${userName} Realizou um novo relatório de apreensão\n
-👮 **QRA:** ${qra}\n
-📝 **RG do detido:** ${rg}
-📝 **Nome do detido:** ${detidoName}
-🌐 **Localização:** ${localizacao}
-📝 **Referência:** ${referencia}\n
-📝 **Relatório:** ${relatorio}
-    
-> 🧰 **Materiais:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
+                formData.append('content', `📂 [RELATÓRIOS] enviados por ${userName} totalizam **${reportCount}**`);
     
                 // Enviar para o webhook do usuário
                 const userResponse = await fetch(userWebhook, {
