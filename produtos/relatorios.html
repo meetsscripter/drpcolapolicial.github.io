@@ -45,6 +45,7 @@
         function loadUserReports() {
             const userListDiv = document.getElementById('userList');
             userListDiv.innerHTML = ''; // Limpa a lista existente
+            let foundUser = false; // Variável para verificar se encontrou algum usuário com mais de 1 relatório
 
             // Percorre todas as chaves no localStorage
             for (let i = 0; i < localStorage.length; i++) {
@@ -55,8 +56,11 @@
                     const username = key.replace('reportCount_', ''); // Extrai o nome de usuário da chave
                     const count = parseInt(localStorage.getItem(key), 10); // Obtém a contagem de relatórios e a converte para número
 
+                    console.log(`Usuário: ${username}, Relatórios: ${count}`); // Adiciona log para depuração
+
                     // Verifica se a contagem é maior que 1
-                    if (count > 1) {
+                    if (count >= 1) {
+                        foundUser = true; // Encontrou um usuário válido
                         // Cria um elemento para exibir o usuário e a contagem
                         const userDiv = document.createElement('div');
                         userDiv.className = 'user';
@@ -64,6 +68,11 @@
                         userListDiv.appendChild(userDiv); // Adiciona à lista
                     }
                 }
+            }
+
+            // Se não encontrar usuários, exibe uma mensagem
+            if (!foundUser) {
+                userListDiv.innerHTML = '<p>Nenhum usuário com mais de 1 relatório encontrado.</p>';
             }
         }
 
