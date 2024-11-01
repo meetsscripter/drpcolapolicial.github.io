@@ -99,6 +99,42 @@
             top: 10px;
             right: 10px;
         }
+        #resetAllCountsButton {
+    background-color: #d9534f; /* Vermelho claro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resetAllCountsButton:hover {
+    background-color: #c9302c; /* Vermelho escuro */
+}
+
+#confirmResetButton {
+    background-color: #5cb85c; /* Verde claro */
+    color: white;
+    border: none;
+    padding: 5px 10px; /* Botão menor */
+    font-size: 14px; /* Tamanho de fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: fixed; /* Fixa o botão na tela */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para realmente ficar no centro */
+    z-index: 1000; /* Certifica que o botão fica acima de outros elementos */
+}
+
+#confirmResetButton:hover {
+    background-color: #4cae4c; /* Verde escuro */
+}
+
+
     </style>
 </head>
 <body>
@@ -429,6 +465,7 @@
             <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
 
             <button type="submit">Enviar</button>
+            <button id="resetAllCountsButton">Zerar Contagem para Todos</button>
         </form>
 
         <p class="success-message" id="successMessage" style="display:none;">Relatório enviado com sucesso!</p>
@@ -450,7 +487,7 @@
         const referenciaSelect = document.getElementById('referencia');
         const referenciaLabel = document.getElementById('referenciaLabel');
     
-              const users = {
+        const users = {
             'POK3': { nome: '<@292006349020069889>', nome2: 'Jason Todd', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Jason
             'ADJ1': { nome: '<@1042464970392223755>', nome2: 'Albert Leal', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Leal
             'ZXW7': { nome: '<@997151738337439914>', nome2: 'Biel Vasquez', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Biel Vasquez
