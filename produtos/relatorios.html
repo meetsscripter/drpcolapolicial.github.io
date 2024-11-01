@@ -1,43 +1,83 @@
-<script>
-    // Função para carregar e exibir os usuários e suas contagens de relatórios
-    function loadUserReports() {
-        const userListDiv = document.getElementById('userList');
-        userListDiv.innerHTML = ''; // Limpa a lista existente
-        let foundUser = false; // Variável para verificar se encontrou algum usuário com mais de 1 relatório
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios Enviados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .user-list {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .user {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .user:last-child {
+            border-bottom: none; /* Remove a borda do último usuário */
+        }
+        .username {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatórios Enviados</h1>
+    <div class="user-list" id="userList"></div>
 
-        // Percorre todas as chaves no localStorage
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
+    <script>
+        // Função para carregar e exibir os usuários e suas contagens de relatórios
+        function loadUserReports() {
+            const userListDiv = document.getElementById('userList');
+            userListDiv.innerHTML = ''; // Limpa a lista existente
+            let foundUser = false; // Variável para verificar se encontrou algum usuário com mais de 1 relatório
 
-            // Verifique se a chave começa com 'reportCount_'
-            if (key.startsWith('reportCount_')) {
-                const username = key.replace('reportCount_', ''); // Extrai o nome de usuário da chave
-                const count = parseInt(localStorage.getItem(key), 10); // Obtém a contagem de relatórios e a converte para número
+            // Percorre todas as chaves no localStorage
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
 
-                // Verifica se o valor convertido é um número e maior ou igual a 1
-                if (!isNaN(count) && count >= 1) {
+                // Verifique se a chave começa com 'reportCount_'
+                if (key.startsWith('reportCount_')) {
+                    const username = key.replace('reportCount_', ''); // Extrai o nome de usuário da chave
+                    const count = parseInt(localStorage.getItem(key), 10); // Obtém a contagem de relatórios e a converte para número
+
                     console.log(`Usuário: ${username}, Relatórios: ${count}`); // Adiciona log para depuração
-                    foundUser = true; // Encontrou um usuário válido
 
-                    // Cria um elemento para exibir o usuário e a contagem
-                    const userDiv = document.createElement('div');
-                    userDiv.className = 'user';
-                    userDiv.innerHTML = `<span class="username">${username}</span> <span>${count} relatórios</span>`;
-                    userListDiv.appendChild(userDiv); // Adiciona à lista
+                    // Verifica se a contagem é maior que 1
+                    if (count >= 1) {
+                        foundUser = true; // Encontrou um usuário válido
+                        // Cria um elemento para exibir o usuário e a contagem
+                        const userDiv = document.createElement('div');
+                        userDiv.className = 'user';
+                        userDiv.innerHTML = `<span class="username">${username}</span> <span>${count} relatórios</span>`;
+                        userListDiv.appendChild(userDiv); // Adiciona à lista
+                    }
                 }
+            }
+
+            // Se não encontrar usuários, exibe uma mensagem
+            if (!foundUser) {
+                userListDiv.innerHTML = '<p>Nenhum usuário com mais de 1 relatório encontrado.</p>';
             }
         }
 
-        // Se não encontrar usuários, exibe uma mensagem
-        if (!foundUser) {
-            userListDiv.innerHTML = '<p>Nenhum usuário com mais de 1 relatório encontrado.</p>';
-        }
-    }
-
-    // Adicione alguns exemplos ao carregar a página (apenas para teste)
-    localStorage.setItem('reportCount_user1', 2); // Exemplo: 2 relatórios para user1
-    localStorage.setItem('reportCount_user2', 5); // Exemplo: 5 relatórios para user2
-
-    // Chama a função ao carregar a página
-    loadUserReports();
-</script>
+        // Chama a função ao carregar a página
+        loadUserReports();
+    </script>
+</body>
+</html>
