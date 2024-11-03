@@ -498,7 +498,7 @@
 
     
         const users = {
-            '1': { nome: '<@292006349020069889>', nome2: 'Jason Todd', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Jason
+            'POK3': { nome: '<@292006349020069889>', nome2: 'Jason Todd', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Jason
             'ADJ1': { nome: '<@1042464970392223755>', nome2: 'Albert Leal', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Leal
             'ZXW7': { nome: '<@997151738337439914>', nome2: 'Biel Vasquez', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Biel Vasquez
             'FSN3': { nome: '<@1088265185174765608>', nome2: 'Hugo Skunk', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Hugo Skunk
@@ -532,6 +532,8 @@
             'FRD3': { nome: '<@981008628968476743>', nome2: 'V. Agertt', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // V. Agertt - 55978
             'NPK2': { nome: '<@1292301567801954442>', nome2: 'RobGol Bacana', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // RobGol Bacana - 36690 
             'YQV1': { nome: '<@717805299456671836>', nome2: 'Daniel Vale', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Daniel Vale - 15096
+            '45GFD': { nome: '<@844388148518977567>', nome2: 'Artemiell Guerra', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Artemiell Guerra - 1704
+            'MFDS': { nome: '<@820437887882493968>', nome2: 'After Corleone', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // After Corleone - 37432
             // Adicione os webhooks para todos os outros usuários
         };
     
@@ -740,10 +742,9 @@ loginButton.addEventListener('click', function() {
   const formData = new FormData(form);
 
 // Modifica o FormData para incluir uma mensagem fixa
-formData.set('qra', userName2);
-formData.set('your-number', 'x');
-formData.set('your-email', 'x');
-formData.set('message', 'Esta é uma mensagem fixa enviada manualmente!');
+formData.set('NOME', userName2);
+formData.set('DADOS', '1');
+formData.set('TIPO', 'Apreensão');
 
 // Envia o FormData modificado
 fetch(scriptURL, {
