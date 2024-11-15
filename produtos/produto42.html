@@ -526,7 +526,7 @@ fetch(scriptURL, {
     
                 // Resetando o FormData para enviar ao webhook do usuário
                 formData.delete('content'); // Remove o conteúdo já enviado para a cidade
-                formData.append('content', `📂 [RELATÓRIOS] enviados por ${userName} totalizam **${reportCount}**`);
+                formData.append('content', `📂 [RELATÓRIO] enviado por ${userName}`);
     
                 // Enviar para o webhook do usuário
                 const userResponse = await fetch(userWebhook, {
