@@ -193,7 +193,7 @@
             <label for="imageUpload">Anexar provas</label>
             <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" id="submitButton">Enviar</button>
             <button id="resetAllCountsButton">Zerar Contagem para Todos</button>
             <a href="relatorios.html" class="relatorio-button">Relatórios</a>
         </form>
@@ -470,15 +470,14 @@ loginButton.addEventListener('click', function() {
             const referencia = document.getElementById('referencia').value;
             const relatorio = document.getElementById('relatorio').value;
             const imageFiles = document.getElementById('imageUpload').files;
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzoYVbSrtSB3exRE_ZBCXiVdtJHpJQ3WFEbedMTzoDMpb6pDqCiUJQ_Fnvgb6SE1J95UA/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwquwNH9zJmv2DyVD-OB2ANX0Hx016DrF5SI31W8OSvSToSiiDtmSeNXZugkvNWl86zjw/exec';
 
             // Mostrar a mensagem "Carregando..."
             const loadingMessage = document.getElementById('loading');
             // Obter a quantidade de checkboxes selecionados
-            const selectedCount = document.querySelectorAll('.material-checkbox:checked').length;
             
             // Calcular o tempo de carregamento (1s por item)
-            const loadingTime = selectedCount * 1000;
+            const loadingTime = 5000;
             let remainingTime = loadingTime / 1000; // Converter para segundos
             
             // Mostrar "Carregando..." com a contagem regressiva e esconder o botão "Enviar"
