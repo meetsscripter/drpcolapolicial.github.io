@@ -472,6 +472,35 @@ loginButton.addEventListener('click', function() {
             const imageFiles = document.getElementById('imageUpload').files;
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzoYVbSrtSB3exRE_ZBCXiVdtJHpJQ3WFEbedMTzoDMpb6pDqCiUJQ_Fnvgb6SE1J95UA/exec';
 
+            // Mostrar a mensagem "Carregando..."
+            const loadingMessage = document.getElementById('loading');
+            // Obter a quantidade de checkboxes selecionados
+            const selectedCount = document.querySelectorAll('.material-checkbox:checked').length;
+            
+            // Calcular o tempo de carregamento (1s por item)
+            const loadingTime = selectedCount * 1000;
+            let remainingTime = loadingTime / 1000; // Converter para segundos
+            
+            // Mostrar "Carregando..." com a contagem regressiva e esconder o botão "Enviar"
+            loadingMessage.textContent = `Carregando... (${remainingTime}s)`;
+            loadingMessage.style.display = 'block';
+            submitButton.style.display = 'none';
+            
+            // Atualizar a contagem regressiva a cada segundo
+            const countdownInterval = setInterval(() => {
+                remainingTime -= 1;
+                if (remainingTime > 0) {
+                    loadingMessage.textContent = `Carregando... (${remainingTime}s)`;
+                }
+            }, 1000);
+            
+            // Ocultar "Carregando..." e mostrar o botão "Enviar" após o envio
+            setTimeout(() => {
+                clearInterval(countdownInterval); // Parar a contagem regressiva
+                loadingMessage.style.display = 'none';
+                submitButton.style.display = 'inline-block';
+            }, loadingTime);
+
 
             const cityWebhookMap = {
             "Los Santos": "https://discord.com/api/webhooks/1300151662677065900/OemIF8i1JiS5Exp2qoVBVEr-Mz33-_Ve3TIpVvVB6FgpKPpG__SmVKkVoj9qQCQSkZki",
