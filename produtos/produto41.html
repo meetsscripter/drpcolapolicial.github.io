@@ -749,11 +749,9 @@ loginButton.addEventListener('click', function() {
 
             // Mostrar a mensagem "Carregando..."
             const loadingMessage = document.getElementById('loading');
-            // Obter a quantidade de checkboxes selecionados
-            const selectedCount = document.querySelectorAll('.material-checkbox:checked').length;
-            
+           
             // Calcular o tempo de carregamento (1s por item)
-            const loadingTime = selectedCount * 1000;
+            const loadingTime = 5000;
             let remainingTime = loadingTime / 1000; // Converter para segundos
             
             // Mostrar "Carregando..." com a contagem regressiva e esconder o botão "Enviar"
