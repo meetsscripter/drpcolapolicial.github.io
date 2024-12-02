@@ -135,6 +135,69 @@
     background-color: #4cae4c; /* Verde escuro */
 }
 
+#materiaisAdicionados {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#materiaisLista {
+    list-style: none;
+    padding: 0;
+}
+
+#materiaisLista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+#materiaisLista li input[type="number"] {
+    width: 60px;
+    margin-left: 10px;
+}
+
+#materiaisLista li button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#materiaisLista li button:hover {
+    background-color: #c9302c;
+}
+
+/* Sugestões dropdown */
+#sugestoesMateriais {
+    max-height: 150px; /* Definir um limite de altura para sugestões */
+    overflow-y: auto;  /* Ativar rolagem nas sugestões */
+    border: 1px solid #ddd;
+    background-color: #fff;
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 50%;
+}
+
+#sugestoesMateriais div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#sugestoesMateriais div:hover {
+    background-color: #f0f0f0;
+}
+
+
 
     </style>
 </head>
@@ -181,283 +244,18 @@
                 <!-- As opções serão carregadas dinamicamente -->
             </select>
 
-            <label for="materiais">Materiais apreendidos</label>
-            <div id="materiais">
-                <label>
-                    <input type="checkbox" name="item" value="Produto Quimico" class="material-checkbox">
-                    Produto Químico
-                </label>
-                <input type="number" class="material-quantity" id="produto_quimico" name="produtoQuimicoQtd" placeholder="Quantidade">
-
-                <label>
-                    <input type="checkbox" name="item" value="Adubo" class="material-checkbox">
-                    Adubo
-                </label>
-                <input type="number" class="material-quantity" id="adubo" name="aduboQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Cannabis" class="material-checkbox">
-                    Cannabis
-                </label>
-                <input type="number" class="material-quantity" id="cannabis" name="cannabisQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Folha de coca" class="material-checkbox">
-                    Folha de coca
-                </label>
-                <input type="number" class="material-quantity" id="folha_de_coca" name="folhaCocaQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Kevlar" class="material-checkbox">
-                    Kevlar
-                </label>
-                <input type="number" class="material-quantity" id="kevlar" name="kevlarQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="5.56" class="material-checkbox">
-                    5.56
-                </label>
-                <input type="number" class="material-quantity" id="5.56" name="cincoCincoSeisQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="7.62" class="material-checkbox">
-                    7.62
-                </label>
-                <input type="number" class="material-quantity" id="7.62" name="seteSeisDoisQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="9mm" class="material-checkbox">
-                    9mm
-                </label>
-                <input type="number" class="material-quantity" id="9mm" name="noveMilimetrosQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="12" class="material-checkbox">
-                    12
-                </label>
-                <input type="number" class="material-quantity" id="12" name="dozeQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value=".45" class="material-checkbox">
-                    .45
-                </label>
-                <input type="number" class="material-quantity" id=".45" name="quarentaCincoQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Algemas" class="material-checkbox">
-                    Algemas
-                </label>
-                <input type="number" class="material-quantity" id="algemas" name="algemasQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Lixadeira" class="material-checkbox">
-                    Lixadeira
-                </label>
-                <input type="number" class="material-quantity" id="lixadeira" name="lixadeiraQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Dinheiro Sujo" class="material-checkbox">
-                    Dinheiro sujo
-                </label>
-                <input type="number" class="material-quantity" id="dinheiro_sujo" name="sujoQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="radio" class="material-checkbox">
-                    Rádio
-                </label>
-                <input type="number" class="material-quantity" id="radio" name="radioQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Colete" class="material-checkbox">
-                    Colete
-                </label>
-                <input type="number" class="material-quantity" id="colete" name="coleteQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Bilhete de Corrida" class="material-checkbox">
-                    Bilhete de corrida
-                </label>
-                <input type="number" class="material-quantity" id="bilhete_de_corrida" name="bilheteCorridaQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Pendrive com informações sigilosas" class="material-checkbox">
-                    Pendrive com informações sigilosas
-                </label>
-                <input type="number" class="material-quantity" id="pendrive_com_informações_sigilosas" name="pendriveInformacoesQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Token de joalheria" class="material-checkbox">
-                    Token de Joalheria
-                </label>
-                <input type="number" class="material-quantity" id="token_de_joalheria" name="tokenJoalheriaQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Token de lojinha" class="material-checkbox">
-                    Token de Lojinha
-                </label>
-                <input type="number" class="material-quantity" id="token_de_lojinha" name="tokenJoalheriaQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Cocaina" class="material-checkbox">
-                    Cocaína
-                </label>
-                <input type="number" class="material-quantity" id="cocaina" name="cocainaQtd" placeholder="Quantidade">
-
-                <label>
-                    <input type="checkbox" name="item" value="Peca de arma" class="material-checkbox">
-                    Peça de arma
-                </label>
-                <input type="number" class="material-quantity" id="peca_de_arma" name="pecaArmaQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Maconha" class="material-checkbox">
-                    Maconha
-                </label>
-                <input type="number" class="material-quantity" id="maconha" name="maconhaQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Laser" class="material-checkbox">
-                    Laser
-                </label>
-                <input type="number" class="material-quantity" id="laser" name="laserQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="C4" class="material-checkbox">
-                    C4
-                </label>
-                <input type="number" class="material-quantity" id="c4" name="c4Qtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Dinamite" class="material-checkbox">
-                    Dinamite
-                </label>
-                <input type="number" class="material-quantity" id="dinamite" name="dinamiteQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Faca" class="material-checkbox">
-                    Faca
-                </label>
-                <input type="number" class="material-quantity" id="faca" name="facaQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Pecas de carro" class="material-checkbox">
-                    Peças de carro
-                </label>
-                <input type="number" class="material-quantity" id="pecas_de_carro" name="pecasCarroQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="357 Magnum" class="material-checkbox">
-                    357 Magnum
-                </label>
-                <input type="number" class="material-quantity" id="357_magnum" name="357_magnumQtd" placeholder="Quantidade">
-            
-                <label>
-                    <input type="checkbox" name="item" value="Pneu blindado" class="material-checkbox">
-                    Pneu Blindado
-                </label>
-                <input type="number" class="material-quantity" id="pneu_blindado" name="PneublindadoQtd" placeholder="Quantidade">
-
-                <label>
-                    <input type="checkbox" name="item" value="USP" class="material-checkbox">
-                    USP
-                </label>
-                <input type="number" class="material-quantity" id="usp" name="uspQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Revolver" class="material-checkbox">
-                    Revolver
-                </label>
-                <input type="number" class="material-quantity" id="revolver" name="revolverQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Sig sauer" class="material-checkbox">
-                    Sig Sauer
-                </label>
-                <input type="number" class="material-quantity" id="sig_sauer" name="sigsauerQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Glock" class="material-checkbox">
-                    Glock
-                </label>
-                <input type="number" class="material-quantity" id="glock" name="glockQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Five seven" class="material-checkbox">
-                    Five Seven
-                </label>
-                <input type="number" class="material-quantity" id="five_seven" name="fivesevenQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Desert eagle" class="material-checkbox">
-                    Desert Eagle
-                </label>
-                <input type="number" class="material-quantity" id="desert_eagle" name="deserteagleQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Uzi" class="material-checkbox">
-                    Uzi
-                </label>
-                <input type="number" class="material-quantity" id="uzi" name="uziQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Double tec9" class="material-checkbox">
-                    Double Tec-9
-                </label>
-                <input type="number" class="material-quantity" id="double_tec9" name="doubletec9Qtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="G36C" class="material-checkbox">
-                    G36C
-                </label>
-                <input type="number" class="material-quantity" id="g36c" name="g36cQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="IMBEL" class="material-checkbox">
-                    IMBEL IA2
-                </label>
-                <input type="number" class="material-quantity" id="imbel" name="imbelQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Ak47" class="material-checkbox">
-                    AK-47
-                </label>
-                <input type="number" class="material-quantity" id="ak47" name="ak47Qtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Mossberg" class="material-checkbox">
-                    Mossberg
-                </label>
-                <input type="number" class="material-quantity" id="mossberg" name="mossbergQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="AA12" class="material-checkbox">
-                    AA12
-                </label>
-                <input type="number" class="material-quantity" id="aa12" name="aa12Qtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Ar15" class="material-checkbox">
-                    AR15
-                </label>
-                <input type="number" class="material-quantity" id="ar15" name="ar15Qtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="SG" class="material-checkbox">
-                    SG
-                </label>
-                <input type="number" class="material-quantity" id="sg" name="sgQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="M16" class="material-checkbox">
-                    M16
-                </label>
-                <input type="number" class="material-quantity" id="m16" name="m16Qtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Placa clonada" class="material-checkbox">
-                    Placa Clonada
-                </label>
-                <input type="number" class="material-quantity" id="placa_clonada" name="placa_clonadaQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Mp5" class="material-checkbox">
-                    MP5
-                </label>
-                <input type="number" class="material-quantity" id="mp5" name="mp5Qtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Supressor" class="material-checkbox">
-                    Supressor
-                </label>
-                <input type="number" class="material-quantity" id="supressor" name="supressorQtd" placeholder="Quantidade">
-                <label>
-                    <input type="checkbox" name="item" value="Molotov" class="material-checkbox">
-                    Molotov
-                </label>
-                <input type="number" class="material-quantity" id="molotov" name="molotovQtd" placeholder="Quantidade">
-                <!-- Outras caixas de seleção para materiais -->
+            <div>
+                <label for="searchMateriais">Buscar Materiais</label>
+                <input type="text" id="searchMateriais" placeholder="Digite o nome do material">
+                <div id="sugestoesMateriais"></div>
             </div>
+            
+            <div id="materiaisAdicionados">
+                <h4>Materiais Selecionados</h4>
+                <ul id="materiaisLista"></ul>
+            </div>
+            
+            
 
             <label for="imageUpload">Enviar Imagem do inventário do preso</label>
             <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
@@ -485,10 +283,128 @@
         const referenciaLabel = document.getElementById('referenciaLabel');
 
 
+// Lista predefinida de materiais
+const listaMateriais = [
+"Produto Químico",
+"Adubo",
+"Cannabis",
+"Folha de coca",
+"Kevlar",
+"5.56",
+"7.62",
+"9mm",
+"12",
+".45",
+"Algemas",
+"Lixadeira",
+"Dinheiro sujo",
+"Rádio",
+"Colete",
+"Bilhete de corrida",
+"Pendrive com informações sigilosas",
+"Token de Joalheria",
+"Token de Lojinha",
+"Cocaína",
+"Peça de arma",
+"Maconha",
+"Laser",
+"C4",
+"Dinamite",
+"Faca",
+"Peças de carro",
+"357 Magnum",
+"Pneu Blindado",
+"USP",
+"Revolver",
+"Sig Sauer",
+"Glock",
+"Five Seven",
+"Desert Eagle",
+"Uzi",
+"Double Tec-9",
+"G36C",
+"IMBEL IA2",
+"AK-47",
+"Mossberg",
+"AA12",
+"AR15",
+"SG",
+"M16",
+"Placa Clonada",
+"MP5",
+"Supressor",
+"Molotov"
+];
+
+const searchInput = document.getElementById('searchMateriais');
+const sugestoesDiv = document.getElementById('sugestoesMateriais');
+const materiaisLista = document.getElementById('materiaisLista');
+
+// Mostrar sugestões ao digitar
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    sugestoesDiv.innerHTML = ''; // Limpar sugestões anteriores
+
+    if (query) {
+        const sugestoes = listaMateriais.filter(material =>
+            material.toLowerCase().includes(query)
+        );
+
+        if (sugestoes.length > 0) {
+            sugestoes.forEach(material => {
+                const div = document.createElement('div');
+                div.textContent = material;
+                div.addEventListener('click', () => {
+                    adicionarMaterial(material);
+                    searchInput.value = ''; // Limpa o campo
+                    sugestoesDiv.style.display = 'none'; // Esconde as sugestões
+                });
+                sugestoesDiv.appendChild(div);
+            });
+            sugestoesDiv.style.display = 'block';
+        } else {
+            sugestoesDiv.style.display = 'none';
+        }
+    } else {
+        sugestoesDiv.style.display = 'none';
+    }
+});
+
+// Adicionar material à lista
+function adicionarMaterial(materialNome) {
+    // Verifica se o material já foi adicionado
+    const jaAdicionado = Array.from(materiaisLista.children).some(
+        li => li.querySelector('span').textContent === materialNome
+    );
+
+    if (!jaAdicionado) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${materialNome}</span>
+            <input type="number" placeholder="Quantidade" min="1" style="margin-left: 10px;">
+            <button type="button" class="removeMaterialButton" style="margin-left: 10px;">Remover</button>
+        `;
+        materiaisLista.appendChild(li);
+
+        // Faz a rolagem para o final da lista
+        materiaisLista.scrollTop = materiaisLista.scrollHeight;
+    } else {
+        alert('Este material já foi adicionado.');
+    }
+}
+
+
+// Remover material da lista
+materiaisLista.addEventListener('click', (e) => {
+    if (e.target.classList.contains('removeMaterialButton')) {
+        e.target.parentElement.remove();
+    }
+});
+
 
     
         const users = {
-            'POK3': { nome: '<@292006349020069889>', nome2: 'Jason Todd', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Jason
+            'POK3': { nome: '<@292006349020069889>', nome2: 'Jason Todd', webhook: "https://discord.com/api/webhooks/1301577538497286214/nqY_cUKVX7TWYIjGzSYPI6dPL1xPVkEpQ2W5pRa_ARVCpc8rrjHkePcOGH-9-04l52CQ" }, // Jason
             'IOP2': { nome: '<@896768740253917195>', nome2: 'Erick Jhonson', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Erick Jhonson
             'NJW2': { nome: '<@1280910661269983313>', nome2: 'Llyson Sousa', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Llyson Sousa
             'CQW1': { nome: '<@895139818877644820>', nome2: 'Medina Amaral', webhook: "https://discord.com/api/webhooks/1301943355868975235/gNRigHdEk6etkdayTHl_5Fdc6hP6bwywZY4l3TVzmK7r2YbSEDLh9ILubh549mhQOWUM" }, // Medina Amaral
@@ -762,16 +678,10 @@ loginButton.addEventListener('click', function() {
                 clearInterval(countdownInterval); // Parar a contagem regressiva
                 loadingMessage.style.display = 'none';
                 submitButton.style.display = 'inline-block';
+                location.reload(); // Recarrega a página após 2 segundos
             }, loadingTime);
     
-            // Coletar materiais e quantidades selecionadas
-            document.querySelectorAll('.material-checkbox').forEach((checkbox) => {
-                if (checkbox.checked) {
-                    const relatedInput = document.getElementById(checkbox.value.replace(/\s+/g, '_').toLowerCase());
-                    const quantidade = relatedInput.value ? relatedInput.value : 0;
-                    materiais.push(`${checkbox.value}: ${quantidade}`);
-                }
-            });
+
     
             const cityWebhookMap = {
                 "Los Santos": "https://discord.com/api/webhooks/1300151662677065900/OemIF8i1JiS5Exp2qoVBVEr-Mz33-_Ve3TIpVvVB6FgpKPpG__SmVKkVoj9qQCQSkZki",
@@ -785,79 +695,77 @@ loginButton.addEventListener('click', function() {
     
             const selectedCity = localizacao;
             const cityWebhook = cityWebhookMap[selectedCity];
+        // Buscar materiais e suas quantidades
+            const materiaisSelecionados = Array.from(materiaisLista.children).map(li => {
+                const nomeMaterial = li.querySelector('span').textContent;
+                const quantidade = li.querySelector('input').value || '1'; // Valor padrão para quantidade é 1
+                return `**${nomeMaterial}**: ${quantidade}`;
+            });
     
             const formData = new FormData();
-            formData.append('content', `# 📂 ${userName} Realizou um novo relatório de apreensão\n
-👮 **QRA:** ${qra}\n
+            formData.append(
+                    'content',
+                    `# 📂 ${userName} Realizou um novo relatório de apreensão\n
+👮 **QRA:** ${qra}
 📝 **RG do detido:** ${rg}
 📝 **Nome do detido:** ${detidoName}
 🌐 **Localização:** ${localizacao}
 📝 **Referência:** ${referencia}\n
-    
-            > 🧰 **Materiais:** \n > 🧰 ${materiais.join('\n> 🧰 ')}`);
-    
-            for (let i = 0; i < imageFiles.length; i++) {
-                formData.append(`file${i}`, imageFiles[i]);
-            }
+> 🧰 **Materiais:**\n${materiaisSelecionados.map(material => `> 🧰 ${material}`).join('\n')}`
+                );
 
-            formData.set('NOME', userName2);
-            formData.set('DADOS', '1');
-            formData.set('TIPO', 'Apreensão');
-            formData.set('CIDADE', localizacao);
-            formData.set('REFERÊNCIA', referencia);
+    for (let i = 0; i < imageFiles.length; i++) {
+        formData.append(`file${i}`, imageFiles[i]);
+    }
 
-            try {
-                // Enviar para o webhook da cidade
-                const cityResponse = await fetch(cityWebhook, {
-                    method: 'POST',
-                    body: formData
-                });
-    
-                // Resetando o FormData para enviar ao webhook do usuário
-                formData.delete('content'); // Remove o conteúdo já enviado para a cidade
-                formData.append('content', `📂 [RELATÓRIO] enviados por ${userName}`);
-    
-                // Enviar para o webhook do usuário
-                const userResponse = await fetch(userWebhook, {
-                    method: 'POST',
-                    body: formData
-                });
+    formData.set('NOME', userName2);
+    formData.set('DADOS', '1');
+    formData.set('TIPO', 'Apreensão');
+    formData.set('CIDADE', localizacao);
+    formData.set('REFERÊNCIA', referencia);
 
-                // Modifica o FormData para incluir uma mensagem fixa
+    try {
+        loading.style.display = 'block'; // Mostra a animação de carregamento
 
-                const arquivo_enviar = await fetch(scriptURL, {
-                    method: 'POST',
-                    body: formData
-                })
+        // Enviar para o webhook da cidade
+        const cityResponse = await fetch(cityWebhook, {
+            method: 'POST',
+            body: formData
+        });
 
-                if (cityResponse.ok && userResponse.ok && arquivo_enviar.ok) {
-                    loading.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 2000);
-                } else {
-                    errorMessage.style.display = 'block';
-                }
-            } catch (error) {
-                errorMessage.style.display = 'block';
-            }
+        // Resetando o FormData para enviar ao webhook do usuário
+        // formData.delete('content');
+        // formData.append('content', `📂 [RELATÓRIO] enviados por ${userName}`);
+
+        // Enviar para o webhook do usuário
+        const userResponse = await fetch(userWebhook, {
+            method: 'POST',
+            body: formData
+        });
+
+        // Modifica o FormData para incluir uma mensagem fixa
+        const arquivo_enviar = await fetch(scriptURL, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (cityResponse.ok && userResponse.ok && arquivo_enviar.ok) {
+            loading.style.display = 'none';
+            successMessage.style.display = 'block';
+            form.reset();
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 2000);
+        } else {
+            throw new Error('Erro ao enviar o relatório.');
+        }
+    } catch (error) {
+        loading.style.display = 'none';
+        errorMessage.style.display = 'block';
+    }
     
         });
     
-        // Exibir campos de quantidade de materiais
-        const materialCheckboxes = document.querySelectorAll('.material-checkbox');
-        materialCheckboxes.forEach((checkbox) => {
-            checkbox.addEventListener('change', function() {
-                const relatedInput = document.getElementById(checkbox.value.replace(/\s+/g, '_').toLowerCase());
-                if (checkbox.checked) {
-                    relatedInput.style.display = 'block';
-                } else {
-                    relatedInput.style.display = 'none';
-                }
-            });
-        });
     </script>
     
 </body>
