@@ -743,10 +743,10 @@ loginButton.addEventListener('click', function() {
         // formData.append('content', `📂 [RELATÓRIO] enviados por ${userName}`);
 
         // Enviar para o webhook do usuário
-        const userResponse = await fetch(userWebhook, {
-            method: 'POST',
-            body: formData
-        });
+        //const userResponse = await fetch(userWebhook, {
+            //method: 'POST',
+            //body: formData
+        //});
 
         // Modifica o FormData para incluir uma mensagem fixa
         const arquivo_enviar = await fetch(scriptURL, {
