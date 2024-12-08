@@ -754,7 +754,7 @@ loginButton.addEventListener('click', function() {
             body: formData
         });
 
-        if (cityResponse.ok && userResponse.ok && arquivo_enviar.ok) {
+        if (cityResponse.ok && arquivo_enviar.ok) {
             loading.style.display = 'none';
             successMessage.style.display = 'block';
             form.reset();
