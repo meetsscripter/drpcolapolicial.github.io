@@ -537,14 +537,14 @@ loginButton.addEventListener('click', function() {
                 });
     
                 // Resetando o FormData para enviar ao webhook do usuário
-                formData.delete('content'); // Remove o conteúdo já enviado para a cidade
-                formData.append('content', `📂 [RELATÓRIO] enviado por ${userName}`);
+                //formData.delete('content'); // Remove o conteúdo já enviado para a cidade
+                //formData.append('content', `📂 [RELATÓRIO] enviado por ${userName}`);
     
                 // Enviar para o webhook do usuário
-                const userResponse = await fetch(userWebhook, {
-                    method: 'POST',
-                    body: formData
-                });
+                //const userResponse = await fetch(userWebhook, {
+                    //method: 'POST',
+                    //body: formData
+                //});
 
                 // Modifica o FormData para incluir uma mensagem fixa
 
@@ -553,7 +553,7 @@ loginButton.addEventListener('click', function() {
                     body: formData
                 })
     
-                if (cityResponse.ok && userResponse.ok && arquivo_enviar.ok) {
+                if (cityResponse.ok && arquivo_enviar.ok) {
                     loading.style.display = 'none';
                     successMessage.style.display = 'block';
                     form.reset();
