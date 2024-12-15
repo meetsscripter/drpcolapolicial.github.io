@@ -737,15 +737,21 @@ loginButton.addEventListener('click', function() {
             body: formData
         });
 
-        // Resetando o FormData para enviar ao webhook do usuário
-        // formData.delete('content');
-        // formData.append('content', `📂 [RELATÓRIO] enviados por ${userName}`);
+         //Resetando o FormData para enviar ao webhook do usuário
+         formData.delete('content');
+            formData.append(
+                    'content',
+                    `# 👤 ${detidoName} (${rg}) Relatório de Prisão\n
+${detidoName}, que pertence ao RG ${rg}, foi capturado na cidade de ${localizacao} com referência ${referencia}. foi encontrado..\n
+> 🧰 **Material encontrado:**\n${materiaisSelecionados.map(material => `> 🧰 ${material}`).join('\n')}`
+                );
 
-        // Enviar para o webhook do usuário
-        //const userResponse = await fetch(userWebhook, {
-            //method: 'POST',
-            //body: formData
-        //});
+
+         //Enviar para o webhook do usuário
+        const userResponse = await fetch(userWebhook, {
+            method: 'POST',
+            body: formData
+        });
 
         // Modifica o FormData para incluir uma mensagem fixa
         const arquivo_enviar = await fetch(scriptURL, {
@@ -753,7 +759,7 @@ loginButton.addEventListener('click', function() {
             body: formData
         });
 
-        if (cityResponse.ok && arquivo_enviar.ok) {
+        if (cityResponse.ok && userResponse.ok && arquivo_enviar.ok) {
             loading.style.display = 'none';
             successMessage.style.display = 'block';
             form.reset();
