@@ -655,7 +655,7 @@ loginButton.addEventListener('click', function() {
             const referencia = document.getElementById('referencia').value;
             const materiais = [];
             const imageFiles = document.getElementById('imageUpload').files;
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwquwNH9zJmv2DyVD-OB2ANX0Hx016DrF5SI31W8OSvSToSiiDtmSeNXZugkvNWl86zjw/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbycaTesDfz3ISlSUyOeyxPYmJUcvBxGbs0jkrNh6uZVmAnrMcEXyyDQwk8APlR9DTaH/exec';
 
             // Mostrar a mensagem "Carregando..."
             const loadingMessage = document.getElementById('loading');
@@ -723,11 +723,6 @@ loginButton.addEventListener('click', function() {
     }
 
     formData.set('NOME', userName2);
-    formData.set('DADOS', '1');
-    formData.set('TIPO', 'Apreensão');
-    formData.set('CIDADE', localizacao);
-    formData.set('REFERÊNCIA', referencia);
-
     try {
         loading.style.display = 'block'; // Mostra a animação de carregamento
 
